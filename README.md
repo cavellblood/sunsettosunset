@@ -20,7 +20,7 @@ Sunset to Sunset works on Craft 2.4.x and Craft 2.5.x.
 
 ## Sunset to Sunset Overview
 
--Insert text here-
+Sunset to Sunset allows you to redirect your Craft site visitors to a specified template during the Sabbath hours. It will show a banner a set amount of time before notifiying your users of the upcoming closing hours. It also adds a time guard to the edges of the Sabbath allowing the site to close a set amount of time before and open a set amount of time after the Sabbath hours.
 
 ## Configuring Sunset to Sunset
 
