@@ -1,0 +1,24 @@
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource "sunsettosunset/css/SunsetToSunset_Style.css" %}
+{% includeJsResource "sunsettosunset/js/SunsetToSunset_Script.js" %}
+
+{% set title = craft.sunsettosunset.getPluginName() %}
+
+{% if craft.config.get('advancedMode', 'sunsettosunset') %}
+
+    {% set tabs = {
+        message: { label: "Settings"|t, url: url('sunsettosunset') },
+        location: { label: "Location"|t, url: url('sunsettosunset/location') },
+        logs: { label: "Logs"|t, url: url('sunsettosunset/logs') },
+    } %}
+
+{% else %}
+
+    {% set tabs = {
+        message: { label: "Settings"|t, url: url('sunsettosunset') },
+        location: { label: "Location"|t, url: url('sunsettosunset/location') },
+    } %}
+
+{% endif %}

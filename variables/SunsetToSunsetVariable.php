@@ -1,0 +1,51 @@
+<?php
+/**
+ * Sunset to Sunset plugin for Craft CMS
+ *
+ * Sunset to Sunset Variable
+ *
+ * @author    Cavell L. Blood
+ * @copyright Copyright (c) 2017 Cavell L. Blood
+ * @link      https://cavellblood.com
+ * @package   SunsetToSunset
+ * @since     1
+ */
+
+namespace Craft;
+
+class SunsetToSunsetVariable
+{
+    /**
+     */
+    public function getMessage()
+    {
+        return craft()->sunsetToSunset->getMessage();
+    }
+
+    public function getClosingTime()
+    {
+        return craft()->sunsetToSunset->getClosingTime();
+    }
+
+    public function getOpeningTime()
+    {
+        return craft()->sunsetToSunset->getOpeningTime();
+    }
+
+    public function getSettings()
+    {
+        return $this->getPlugin()->getSettings();
+    }
+
+    public function getTemplate()
+    {
+        return craft()->sunsetToSunset->getTemplate();
+    }
+
+    public function getPluginName()
+    {
+        $plugin = craft()->plugins->getPlugin('sunsettosunset');
+        $result = $plugin->getName();
+        return $result;
+    }
+}

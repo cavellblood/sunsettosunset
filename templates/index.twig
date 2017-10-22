@@ -1,0 +1,102 @@
+{#
+/**
+ * Sunset to Sunset plugin for Craft CMS
+ *
+ * Sunset to Sunset Settings.twig
+ *
+ * @author    Cavell L. Blood
+ * @copyright Copyright (c) 2017 Cavell L. Blood
+ * @link      https://cavellblood.com
+ * @package   SunsetToSunset
+ * @since     1
+ */
+#}
+{% extends "sunsettosunset/_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% block content %}
+
+{{ forms.textField({
+    label: 'Latitude'|t,
+    instructions: 'Enter the latitude of the target sunset location.'|t,
+    id: 'latitude',
+    name: 'latitude',  
+    type: 'number',
+    placeholder: '0.0000000',
+    value: settings['latitude']})
+}}
+
+{{ forms.textField({
+    label: 'Longitude'|t,
+    instructions: 'Enter the longitude of the target sunset location.'|t,
+    id: 'longitude',
+    name: 'longitude',  
+    type: 'number',
+    placeholder: '0.0000000',
+    value: settings['longitude']})
+}}
+
+{{ forms.selectField({
+    label: 'Time Zone'|t,
+    instructions: 'Select the time zone of the target sunset location.'|t,
+    id: 'timezone',
+    name: 'timezone',
+    value: settings['timezone'],
+    options: {
+        '' : 'Select',
+        'America/Chicago' : 'America/Chicago',
+        'America/New_York' : 'America/New_York',
+        'America/Denver' : 'America/Denver'
+    }
+    })
+}}
+
+<hr>
+
+{{ forms.textareaField({
+    label: 'Message'|t,
+    instructions: 'Enter the message that should be shown before the store closes.'|t,
+    id: 'message',
+    name: 'message',
+    placeholder: '',
+    value: settings['message']})
+}}
+
+{{ forms.textField({
+    label: 'Show Message Time'|t,
+    instructions: 'Enter the **number of minutes** before sunset that the message should appear.'|t,
+    id: 'showMessageTime',
+    name: 'showMessageTime', 
+    type: 'number',
+    placeholder: '',
+    value: settings['showMessageTime']})
+}}
+
+{{ forms.textField({
+    label: 'Gaurd'|t,
+    instructions: 'Enter the **number of minutes** to add to the edges of the Sabbath hours.'|t,
+    id: 'closingBuffer',
+    name: 'closingBuffer', 
+    type: 'number',
+    placeholder: '',
+    value: settings['gaurd']})
+}}
+
+<hr>
+
+{{ forms.textField({
+    label: 'Template Redirect'|t,
+    instructions: 'Enter the template to display during Sabbath hours. <span class="error">**Template must exist**</span> and have ```{{ craft.sunsettosunset.message }}``` to display the message.'|t,
+    id: 'templateRedirect',
+    name: 'templateRedirect', 
+    type: 'text',
+    placeholder: '/sabbath',
+    value: settings['templateRedirect']})
+}}
+
+<hr>
+
+<h2>Troubleshooting</h2>
+<p><a class="btn" href="{{ url('utils/logs/sunsettosunset.log') }}">View logs</a></p>
+
+{% endblock %}

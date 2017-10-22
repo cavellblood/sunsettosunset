@@ -1,0 +1,26 @@
+{#
+/**
+ * Sunset to Sunset plugin for Craft CMS
+ *
+ * Sunset to SunsetWidget Settings
+ *
+ * @author    Cavell L. Blood
+ * @copyright Copyright (c) 2017 Cavell L. Blood
+ * @link      https://cavellblood.com
+ * @package   SunsetToSunset
+ * @since     1
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource "sunsettosunset/css/SunsetToSunset_Style.css" %}
+{% includeJsResource "sunsettosunset/js/SunsetToSunset_Script.js" %}
+
+{{ forms.textField({
+    label: 'Some Setting',
+    instructions: 'Enter some setting here.',
+    id: 'someSetting',
+    name: 'someSetting',
+    value: settings['someSetting']})
+}}
