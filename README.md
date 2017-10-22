@@ -8,11 +8,13 @@ Keep the hours of the Sabbath holy.
 
 To install Sunset to Sunset, follow these steps:
 
-1. Download & unzip the file and place the `sunsettosunset` directory into your `craft/plugins` directory
-2.  -OR- do a `git clone ???` directly into your `craft/plugins` folder.  You can then update it with `git pull`
-3.  -OR- install with Composer via `composer require /sunsettosunset`
-4. Install plugin in the Craft Control Panel under Settings > Plugins
-5. The plugin folder should be named `sunsettosunset` for Craft to see it.  GitHub recently started appending `-master` (the branch name) to the name of the folder for zip file downloads.
+1. Do **one** of the following:
+	* Download & unzip the file and place the `sunsettosunset` directory into your `craft/plugins` directory
+	* **OR** do a `git clone https://github.com/cavellblood/craft-sunsettosunset.git` directly into your `craft/plugins` folder. 
+You can then update it with `git pull`
+	* **OR** install with Composer via `composer require /sunsettosunset`
+2. Install plugin in the Craft Control Panel under Settings &rarr; Plugins
+3. The plugin folder should be named `sunsettosunset` for Craft to see it.  GitHub recently started appending `-master` (the branch name) to the name of the folder for zip file downloads.
 
 Sunset to Sunset works on Craft 2.4.x and Craft 2.5.x.
 
