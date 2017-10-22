@@ -84,7 +84,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return '';
+        return 'https://github.com/cavellblood/sunsettosunset/blob/master/README.md';
     }
 
     /**
