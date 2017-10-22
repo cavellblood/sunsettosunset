@@ -92,7 +92,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return '';
+        return 'https://raw.githubusercontent.com/cavellblood/sunsettosunset/master/releases.json';
     }
 
     /**
