@@ -153,7 +153,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'latitude' => array(AttributeType::String, 'label' => 'Latitude', 'default' => ''),
             'longitude' => array(AttributeType::String, 'label' => 'Longitude', 'default' => ''),
             'timezone' => array(AttributeType::String, 'label' => 'Time Zone', 'default' => ''),
-            'gaurd' => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
+            'guard' => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
             'message' => array(AttributeType::Mixed, 'label' => 'Message', 'default' => ''),
             'showMessageTime' => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect' => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
