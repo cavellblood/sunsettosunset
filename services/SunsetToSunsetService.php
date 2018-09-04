@@ -40,7 +40,7 @@ class SunsetToSunsetService extends BaseApplicationComponent
 
     public function getGuard()
     {
-        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['gaurd'];
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['guard'];
 
         return (int)$result;
     }
