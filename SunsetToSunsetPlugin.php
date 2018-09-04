@@ -26,7 +26,7 @@ class SunsetToSunsetPlugin extends BasePlugin
 
         $template = $plugin->getTemplate();
         $requestUrl = $request->url;
-        $urlMatchTemplate = ($requestUrl === $template ? true : false );
+        $urlMatchTemplate = ($requestUrl === $template);
 
         $beforeSabbath = date('U') < $plugin->getClosingTime() && date('U') > $plugin->getShowMessageTime();
         $duringSabbath = date('U') >= $plugin->getClosingTime() && date('U') <= $plugin->getOpeningTime() && date('w') >= $plugin->getClosingDayNumber();
