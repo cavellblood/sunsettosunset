@@ -139,8 +139,8 @@ class SunsetToSunsetPlugin extends BasePlugin
     public function registerCpRoutes()
     {
         return array(
-            'sunsettosunset' => ['action' => "sunsetToSunset/message/index"],
-            'sunsettosunset/location' => ['action' => "sunsetToSunset/location/index"],
+            'sunsettosunset' => ['action' => 'sunsetToSunset/message/index'],
+            'sunsettosunset/location' => ['action' => 'sunsetToSunset/location/index'],
         );
     }
 
