@@ -16,5 +16,13 @@
             "[Improved] More succinct handling of public functions",
             "[Improved] Updated the README.md"
         ]
+    },
+    {
+        "version": "1.0.2",
+        "downloadUrl": "https://github.com/cavellblood/craft-sunsettosunset/archive/1.0.2.zip",
+        "date": "2018-09-04T11:00:00-11:48",
+        "notes": [
+            "[Fixed] Corrected all misspellings of `guard`"
+        ]
     }
 ]
