@@ -40,9 +40,7 @@ class SunsetToSunsetPlugin extends BasePlugin
                 // Render Template
                 craft()->templates->hook('sunsetToSunsetRender', function()
                 {
-                    $template = craft()->sunsetToSunset->render();
-
-                    return $template;
+                    return craft()->sunsetToSunset->render();
                 });
             }
 
