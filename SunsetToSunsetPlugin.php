@@ -38,7 +38,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             if ( $beforeSabbath )
             {
                 // Render Template
-                craft()->templates->hook('sunsetToSunsetRender', function(&$context)
+                craft()->templates->hook('sunsetToSunsetRender', function()
                 {
                     $template = craft()->sunsetToSunset->render();
 
