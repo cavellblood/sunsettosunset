@@ -130,12 +130,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function hasCpSection()
     {
-        if(craft()->config->get('showCpSection', 'sunsettosunset') === true)
-        {
-            return true;
-        }
-
-        return false;
+        return craft()->config->get('showCpSection', 'sunsettosunset') === true;
     }
 
     /**
