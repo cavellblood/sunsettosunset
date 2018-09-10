@@ -82,7 +82,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return 'https://github.com/cavellblood/craft-sunsettosunset/blob/master/README.md';
+        return 'https://github.com/cavellblood/sunsettosunset/blob/master/README.md';
     }
 
     /**
@@ -90,7 +90,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/cavellblood/craft-sunsettosunset/master/releases.json';
+        return 'https://raw.githubusercontent.com/cavellblood/sunsettosunset/master/releases.json';
     }
 
     /**

@@ -1,7 +1,7 @@
 [
     {
         "version": "1.0.0",
-        "downloadUrl": "https://github.com/cavellblood/craft-sunsettosunset/archive/1.0.0.zip",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.0.0.zip",
         "date": "2017-08-09T21:12:20.586Z",
         "notes": [
             "[Added] Initial release"
@@ -9,7 +9,7 @@
     },
     {
         "version": "1.0.1",
-        "downloadUrl": "https://github.com/cavellblood/craft-sunsettosunset/archive/1.0.1.zip",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.0.1.zip",
         "date": "2018-09-04T11:00:00-11:00",
         "notes": [
             "[Fixed] Typo in the `defineSettings` function.",
@@ -19,7 +19,7 @@
     },
     {
         "version": "1.0.2",
-        "downloadUrl": "https://github.com/cavellblood/craft-sunsettosunset/archive/1.0.2.zip",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.0.2.zip",
         "date": "2018-09-04T11:00:00-11:48",
         "notes": [
             "[Fixed] Corrected all misspellings of `guard`"
