@@ -84,7 +84,7 @@ class SunsetToSunsetService extends BaseApplicationComponent
     public function getClosingTime()
     {
         // Set default time zone for date_sun_info to work with
-        date_default_timezone_set( $this->getTimezone() );
+        date_default_timezone_set( $this->getTimeZone() );
 
         // Get closing date and time information
         $daysToClosing     = $this->getClosingDayNumber() - date('w');
@@ -100,7 +100,7 @@ class SunsetToSunsetService extends BaseApplicationComponent
     public function getOpeningTime()
     {
         // Set default time zone for date_sun_info to work with
-        date_default_timezone_set( $this->getTimezone() );
+        date_default_timezone_set( $this->getTimeZone() );
 
         // Get opening date and time information
         $daysToOpening     = $this->getOpeningDayNumber() - date('w');
