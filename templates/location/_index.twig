@@ -1,13 +1,6 @@
 {% extends "sunsettosunset/_layouts/cp" %}
 {% import "_includes/forms" as forms %}
-
-{% macro configWarning(setting) -%}
-    {{ "This is being overridden by the <code>{setting}</code> config setting in your <code>sunsettosunset.php</code> config file."|t({
-        setting: setting
-    })|raw }}
-{%- endmacro %}
-
-{% from _self import configWarning %}
+{% from "sunsettosunset/_macros" import configWarning %}
 
 {% set selectedTab = 'location' %}
 

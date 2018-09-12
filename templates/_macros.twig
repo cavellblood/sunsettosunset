@@ -1,0 +1,5 @@
+{% macro configWarning(setting) -%}
+    {{ "This is being overridden by the <code>{setting}</code> config setting in your <code>sunsettosunset.php</code> config file."|t({
+        setting: setting
+    })|raw }}
+{%- endmacro %}
