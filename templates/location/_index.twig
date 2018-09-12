@@ -54,11 +54,17 @@
             name:         'settings[timezone]',
             value:        settings['timezone'],
             options: {
-                '' : 'Select',
+                'America' : {
+                    optgroup: 'America',
+                },
+                'Pacific/Honolulu' : 'Pacific/Honolulu',
+                'America/Anchorage' : 'America/Anchorage',
+                'America/Los_Angeles' : 'America/Los_Angeles',
+                'America/Phoenix' : 'America/Phoenix',
                 'America/Chicago' : 'America/Chicago',
                 'America/New_York' : 'America/New York',
-                'America/Denver' : 'America/Denver'
-            }
+                'America/Denver' : 'America/Denver',
+            },
             disabled:     (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)),
             warning:      (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)) ? configWarning('timezone'),
             errors:       settings.getErrors('timezone')
