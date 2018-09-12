@@ -65,6 +65,7 @@
                 'America/New_York' : 'America/New York',
                 'America/Denver' : 'America/Denver',
             },
+            class:        (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)) ? 'disabled',
             disabled:     (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)),
             warning:      (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)) ? configWarning('timezone'),
             errors:       settings.getErrors('timezone')
