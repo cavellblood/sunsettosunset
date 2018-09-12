@@ -17,14 +17,13 @@
         <div class="field">
             <div class="half-width-field  half-width-field-left">
                 {{ forms.textField({
-                    label: 'Latitude'|t,
                     first:         true,
+                    label:        'Latitude'|t,
                     instructions: 'Enter the latitude of the target sunset location.'|t,
-                    id: 'settings-latitude',
-                    name: 'settings[latitude]',  
-                    type: 'text',
-                    placeholder: '0.0000000',
-                }}
+                    id:           'settings-latitude',
+                    name:         'settings[latitude]',
+                    type:         'text',
+                    placeholder:  '0.0000000',
                     value:        settings['latitude'],
                     disabled:     (craft.config.get('latitude', 'sunsettosunset') is not sameas(null)),
                     warning:      (craft.config.get('latitude', 'sunsettosunset') is not sameas(null)) ? configWarning('latitude'),
@@ -34,13 +33,13 @@
 
             <div class="half-width-field">
                 {{ forms.textField({
-                    label: 'Longitude'|t,
+                    label:        'Latitude'|t,
                     instructions: 'Enter the longitude of the target sunset location.'|t,
-                    id: 'settings-longitude',
-                    name: 'settings[longitude]',  
-                    type: 'text',
-                    placeholder: '0.0000000',
-                }}
+                    id:           'settings-longitude',
+                    name:         'settings[longitude]',
+                    type:         'text',
+                    placeholder:  '0.0000000',
+                    value:        settings['longitude'],
                     disabled:     (craft.config.get('longitude', 'sunsettosunset') is not sameas(null)),
                     warning:      (craft.config.get('longitude', 'sunsettosunset') is not sameas(null)) ? configWarning('longitude'),
                     errors:       settings.getErrors('longitude')
@@ -49,11 +48,11 @@
         </div>
 
         {{ forms.selectField({
-            label: 'Time Zone'|t,
+            label:        'Time Zone'|t,
             instructions: 'Select the time zone of the target sunset location.'|t,
-            id: 'settings-timezone',
-            name: 'settings[timezone]',
-            value: settings['timezone'],
+            id:           'settings-timezone',
+            name:         'settings[timezone]',
+            value:        settings['timezone'],
             options: {
                 '' : 'Select',
                 'America/Chicago' : 'America/Chicago',
