@@ -18,3 +18,22 @@ div.half-width-field {
 div.half-width-field-left {
 	padding-right: 5%;
 }
+
+.sts__container {
+	background-color: #464646;
+	text-align: center;
+	color: white;
+	padding: 0.5rem 0;
+}
+
+.sts__message {
+	margin: 0.75rem 2rem;
+}
+
+.sts__message p {
+	margin: 0 auto;
+}
+
+.sts__message strong {
+	font-weight: 600;
+}
