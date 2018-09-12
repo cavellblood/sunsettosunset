@@ -16,6 +16,7 @@ namespace Craft;
 class SunsetToSunsetService extends BaseApplicationComponent
 {
     /**
+     * @return float
      */
     public function getLatitude()
     {
@@ -24,6 +25,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return (float)$result;
     }
 
+    /**
+     * @return float
+     */
     public function getLongitude()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['longitude'];
@@ -31,6 +35,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return (float)$result;
     }
 
+    /**
+     * @return mixed
+     */
     public function getTimeZone()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['timezone'];
@@ -38,6 +45,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return $result;
     }
 
+    /**
+     * @return int
+     */
     public function getGuard()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['guard'];
@@ -45,6 +55,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return (int)$result;
     }
 
+    /**
+     * @return int
+     */
     public function getShowMessageTime()
     {
         $time = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['showMessageTime'];
@@ -55,6 +68,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return (int)$result;
     }
 
+    /**
+     * @return mixed
+     */
     public function getMessage()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['message'];
@@ -62,6 +78,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return $result;
     }
 
+    /**
+     * @return mixed
+     */
     public function getTemplate()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['templateRedirect'];
@@ -69,18 +88,27 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return $result;
     }
 
+    /**
+     * @return int
+     */
     public function getClosingDayNumber()
     {   
         // Set day of week: zero-based index
         return 5;
     }
 
+    /**
+     * @return int
+     */
     public function getOpeningDayNumber()
     {
         // Set day of week: zero-based index
         return 6;
     }
 
+    /**
+     * @return float|int
+     */
     public function getClosingTime()
     {
         // Set default time zone for date_sun_info to work with
@@ -97,6 +125,9 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return $result;
     }
 
+    /**
+     * @return float|int
+     */
     public function getOpeningTime()
     {
         // Set default time zone for date_sun_info to work with
@@ -113,6 +144,10 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return $result;
     }
 
+    /**
+     * @return string
+     * @throws Exception
+     */
     public function render()
     {
         $plugin = craft()->plugins->getPlugin('sunsettosunset');
@@ -134,6 +169,10 @@ class SunsetToSunsetService extends BaseApplicationComponent
         return $html;
     }
 
+    /**
+     * @return string
+     * @throws Exception
+     */
     public function renderTime()
     {
         $plugin = craft()->plugins->getPlugin('sunsettosunset');
