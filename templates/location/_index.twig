@@ -23,8 +23,12 @@
                     name: 'settings[latitude]',  
                     type: 'text',
                     placeholder: '0.0000000',
-                    value: settings['latitude']})
                 }}
+                    value:        settings['latitude'],
+                    disabled:     (craft.config.get('latitude', 'sunsettosunset') is not sameas(null)),
+                    warning:      (craft.config.get('latitude', 'sunsettosunset') is not sameas(null)) ? configWarning('latitude'),
+                    errors:       settings.getErrors('latitude')
+                }) }}
             </div>
 
             <div class="half-width-field">
@@ -35,8 +39,11 @@
                     name: 'settings[longitude]',  
                     type: 'text',
                     placeholder: '0.0000000',
-                    value: settings['longitude']})
                 }}
+                    disabled:     (craft.config.get('longitude', 'sunsettosunset') is not sameas(null)),
+                    warning:      (craft.config.get('longitude', 'sunsettosunset') is not sameas(null)) ? configWarning('longitude'),
+                    errors:       settings.getErrors('longitude')
+                }) }}
             </div>
         </div>
 
@@ -52,8 +59,10 @@
                 'America/New_York' : 'America/New York',
                 'America/Denver' : 'America/Denver'
             }
-            })
-        }}
+            disabled:     (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)),
+            warning:      (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)) ? configWarning('timezone'),
+            errors:       settings.getErrors('timezone')
+        }) }}
 
         <div class="buttons">
             <input class="btn submit" type="submit" value="{{ 'Save'|t }}">
