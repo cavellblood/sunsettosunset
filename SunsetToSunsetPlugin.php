@@ -145,6 +145,33 @@ class SunsetToSunsetPlugin extends BasePlugin
     }
 
     /**
+     * @param array|BaseModel $values
+     */
+    public function setSettings($values)
+    {
+        if (!$values)
+        {
+            $values = array();
+        }
+
+        if (is_array($values))
+        {
+            // Merge in any values that are stored in craft/config/sunsettosunset.php
+            foreach ($this->getSettings() as $key => $value)
+            {
+                $configValue = craft()->config->get($key, 'sunsettosunset');
+
+                if ($configValue !== null)
+                {
+                    $values[$key] = $configValue;
+                }
+            }
+        }
+
+        parent::setSettings($values);
+    }
+
+    /**
      * @return array
      */
     protected function defineSettings()
