@@ -1,15 +1,15 @@
-<div class="message  bg-primary  tc  white  pv3">
-	<div class="mw-site  center  ph4  relative">
-		<p class="mv0  mw7  center">
+<div class="sts__container">
+	<div class="sts__message">
+		<p>
 			{{ message }} 
 			The store will be closed from 
-			<span class="fw6">
+			<strong>
 				<time datetime="{{ closingTime | date('c') }}">{{ closingTime | date('l, F j \\a\\t g:ia T') }}</time>
-			</span> 
+			</strong>
 			and will re-open on 
-			<span class="fw6">
+			<strong>
 				<time datetime="{{ openingTime | date('c') }}">{{ openingTime | date('l, F j \\a\\t g:ia T') }}</time>.
-			</span>
+			</strong>
 		</p>
 	</div>
 </div>
