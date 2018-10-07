@@ -108,6 +108,14 @@ class SunsetToSunsetPlugin extends BasePlugin
     /**
      * @return string
      */
+    public function getPluginUrl()
+    {
+        return 'https://github.com/cavellblood/sunsettosunset';
+    }
+
+    /**
+     * @return string
+     */
     public function getReleaseFeedUrl()
     {
         return 'https://raw.githubusercontent.com/cavellblood/sunsettosunset/master/releases.json';
