@@ -4,16 +4,17 @@
 {% includeCssResource "sunsettosunset/css/SunsetToSunset_Style.css" %}
 {% includeJsResource "sunsettosunset/js/SunsetToSunset_Script.js" %}
 
-{% if title is not defined %}
-	{% set title = craft.sunsettosunset.getPluginName ~ ' ' ~ tabs[selectedTab].label ?? '' %}
-{% endif %}
-
 
 {% set tabs = {
 	message: { label: "Message"|t, url: url('sunsettosunset') },
 	location: { label: "Location"|t, url: url('sunsettosunset/location') },
 	advanced: { label: "Advanced"|t, url: url('sunsettosunset/advanced') },
 } %}
+
+{% if title is not defined %}
+	{% set title = craft.sunsettosunset.getPluginName ~ ' ' ~ tabs[selectedTab].label ?? '' %}
+{% endif %}
+
 
 {% set content %}
 	{% block blockContent %}
