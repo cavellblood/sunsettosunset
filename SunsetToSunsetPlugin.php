@@ -28,9 +28,29 @@ class SunsetToSunsetPlugin extends BasePlugin
         $requestUrl = $request->url;
         $urlMatchTemplate = ($requestUrl === $template);
 
-        $beforeSabbath = date('U') < $plugin->getClosingTime() && date('U') > $plugin->getShowMessageTime();
-        $duringSabbath = date('U') >= $plugin->getClosingTime() && date('U') <= $plugin->getOpeningTime() && date('w') >= $plugin->getClosingDayNumber();
-        $afterSabbath  = date('U') > $plugin->getOpeningTime() && date('w') >= $plugin->getOpeningDayNumber();
+        $simulateTime = $plugin->getSimulateTime();
+        $beforeSabbath = false;
+        $duringSabbath = false;
+        $afterSabbath = false;
+
+        if ($simulateTime) {
+            switch ($simulateTime) {
+                case 'before':
+                    $beforeSabbath = true;
+                    break;
+                case 'during':
+                    $duringSabbath = true;
+                    break;
+                case 'after':
+                    $afterSabbath = true;
+                    break;
+            }
+        } else {
+            $beforeSabbath = date('U') < $plugin->getClosingTime() && date('U') > $plugin->getShowMessageTime();
+            $duringSabbath = date('U') >= $plugin->getClosingTime() && date('U') <= $plugin->getOpeningTime() && date('w') >= $plugin->getClosingDayNumber();
+            $afterSabbath  = date('U') > $plugin->getOpeningTime() && date('w') >= $plugin->getOpeningDayNumber();
+        }
+
 
         if ($request->isSiteRequest()) {
 
@@ -45,13 +65,13 @@ class SunsetToSunsetPlugin extends BasePlugin
             }
 
             // During Sabbath and not on Sabbath URL
-            if ( $duringSabbath && !$urlMatchTemplate ) 
+            if ( $duringSabbath && !$urlMatchTemplate )
             {
                 $request->redirect($template, true, 302);
             }
 
             // After Sabbath
-            if ( $afterSabbath ) 
+            if ( $afterSabbath )
             {
                 // If site is open redirect and on message template
                 if ( $request->isSiteRequest() && $urlMatchTemplate ) {
@@ -186,6 +206,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'showMessageTime'  => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect' => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
             'bannerCss'        => array(AttributeType::Mixed, 'label' => 'Banner CSS', 'default' => ''),
+            'simulateTime'     => array(AttributeType::Mixed, 'label' => 'Simulate Time', 'default' => ''),
         );
     }
 

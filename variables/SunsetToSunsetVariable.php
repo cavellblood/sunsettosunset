@@ -37,6 +37,11 @@ class SunsetToSunsetVariable
         return craft()->sunsetToSunset->getBannerCss();
     }
 
+    public function getSimulateTime()
+    {
+        return craft()->sunsetToSunset->getSimulateTime();
+    }
+
     public function getTemplate()
     {
         return craft()->sunsetToSunset->getTemplate();
