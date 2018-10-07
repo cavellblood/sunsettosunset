@@ -1,6 +1,11 @@
 {% extends "sunsettosunset/_layouts/cp" %}
 {% import "_includes/forms" as forms %}
 
+{% set crumbs = [
+	{ label: craft.sunsettosunset.getPluginName | t, url: url('sunsettosunset') },
+	{ label: "Settings" | t, url: url('sunsettosunset/settings') },
+] %}
+
 {% set content %}
 
     <form method="post" action="" accept-charset="UTF-8" data-saveshortcut data-confirm-unload>
