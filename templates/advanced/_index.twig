@@ -14,15 +14,21 @@
 		<input type="hidden" name="pluginClass" value="SunsetToSunset">
 		<input type="hidden" name="redirect" value="sunsettosunset/advanced">
 
-		{{ forms.textareaField({
-			label:        'Custom CSS'|t,
-			class:        'code',
-			instructions: 'Set any custom CSS for the banner.'|t,
-			id:           'settings-banner-css',
-			name:         'settings[bannerCss]',
-			value:        settings['bannerCss'],
-			placeholder:  '',
-			value:        settings['bannerCss']
+		{{ forms.selectField({
+			label:        'Banner CSS Position'|t,
+			instructions: 'Set the CSS `position` property for the banner.'|t,
+			id:           'settings-bannerCssPosition',
+			name:         'settings[bannerCssPosition]',
+			value:        settings['bannerCssPosition'],
+			options: {
+				'relative' : 'Relative',
+				'fixed' : 'Fixed',
+			},
+			class:        (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			disabled:     (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)),
+			warning:      (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)) ? configWarning('bannerCssPosition'),
+			errors:       settings.getErrors('bannerCssPosition')
+		}) }}
 		}) }}
 
 		{{ forms.selectField({

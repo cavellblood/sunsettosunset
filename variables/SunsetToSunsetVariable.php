@@ -32,9 +32,10 @@ class SunsetToSunsetVariable
         return craft()->sunsetToSunset->getOpeningTime();
     }
 
-    public function getBannerCss()
+    public function getBannerCssPosition()
     {
-        return craft()->sunsetToSunset->getBannerCss();
+        return craft()->sunsetToSunset->getBannerCssPosition();
+    }
     }
 
     public function getSimulateTime()
