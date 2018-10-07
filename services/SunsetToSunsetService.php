@@ -81,6 +81,16 @@ class SunsetToSunsetService extends BaseApplicationComponent
     /**
      * @return mixed
      */
+    public function getBannerCss()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['bannerCss'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getTemplate()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['templateRedirect'];
