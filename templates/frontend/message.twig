@@ -1,6 +1,11 @@
 {% includeCssResource "sunsettosunset/css/SunsetToSunset_Style.css" %}
 
-<div class="sts__container" style="{{ craft.sunsettosunset.bannerCss }}">
+<div class="sts__container"
+	style="
+		{{ craft.sunsettosunset.bannerCssPosition ? 'position: ' ~ craft.sunsettosunset.bannerCssPosition ~ ';' }}
+		{{ craft.sunsettosunset.bannerCssBackgroundColor ? 'background-color: ' ~ craft.sunsettosunset.bannerCssBackgroundColor ~ ';' }}
+	"
+>
 	<div class="sts__message">
 		<p>
 			{{ message }} 
