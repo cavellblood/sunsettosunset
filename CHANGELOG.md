@@ -1,5 +1,16 @@
 # Sunset to Sunset Changelog
 
+## 1.2.0 - 2018-10-07
+### Added
+* Ability to set `position` and `background-color` for banner.
+* An additional message can now be set that can be used on the `templateRedirect` page.
+* The **Simulate Time** setting allows you to simulate how the plugin would function before, during, and after the Sabbath.
+* Breadcrumb navigation to the settings pages.
+
+## Improved
+* Clarified setting instructions for the banner message.
+* All settings tabs have been updated to use the `fullPageForm`. The **Save** button is now in the top right of each page.
+
 ## 1.1.0 - 2018-09-12
 ### Added
 * More timezones to choose from. Only US timezones listed at the moment.
