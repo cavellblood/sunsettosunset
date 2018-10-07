@@ -19,8 +19,8 @@
             id: 'settings-message',
             name: 'settings[message]',
             placeholder: '',
-            value: settings['message']})
-        }}
+            value: settings['message']
+        }) }}
 
         <div class="field">
             <div class="half-width-field  half-width-field-left">
@@ -31,8 +31,8 @@
                     name: 'settings[showMessageTime]', 
                     type: 'number',
                     placeholder: '',
-                    value: settings['showMessageTime']})
-                }}
+                    value: settings['showMessageTime']
+                }) }}
             </div>
 
             <div class="half-width-field">
@@ -43,8 +43,8 @@
                     name: 'settings[guard]',
                     type: 'number',
                     placeholder: '',
-                    value: settings['guard']})
-                }}
+                    value: settings['guard']
+                }) }}
             </div>
         </div>
 
@@ -52,13 +52,14 @@
 
         {{ forms.textField({
             label: 'Template Redirect'|t,
+            class: 'code',
             instructions: 'Enter the template to display during Sabbath hours. <span class="error">**Template must exist**</span> and have ```{{ craft.sunsettosunset.message }}``` to display the message.'|t,
             id: 'settings-templateRedirect',
             name: 'settings[templateRedirect]', 
             type: 'text',
             placeholder: '/sabbath',
-            value: settings['templateRedirect']})
-        }}
+            value: settings['templateRedirect']
+        }) }}
 
         <div class="buttons">
             <input class="btn submit" type="submit" value="{{ 'Save'|t }}">
