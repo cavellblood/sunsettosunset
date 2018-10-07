@@ -34,6 +34,6 @@ Sunset to Sunset allows you to redirect your Craft site visitors to a specified 
 
 Some things to do, and ideas for potential features:
 
-* Release it
+* Add indicator in settings showing if simulation mode is enabled.
 
 Brought to you by [Cavell L. Blood](https://cavellblood.com)

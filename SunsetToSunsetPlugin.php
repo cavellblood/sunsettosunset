@@ -28,9 +28,29 @@ class SunsetToSunsetPlugin extends BasePlugin
         $requestUrl = $request->url;
         $urlMatchTemplate = ($requestUrl === $template);
 
-        $beforeSabbath = date('U') < $plugin->getClosingTime() && date('U') > $plugin->getShowMessageTime();
-        $duringSabbath = date('U') >= $plugin->getClosingTime() && date('U') <= $plugin->getOpeningTime() && date('w') >= $plugin->getClosingDayNumber();
-        $afterSabbath  = date('U') > $plugin->getOpeningTime() && date('w') >= $plugin->getOpeningDayNumber();
+        $simulateTime = $plugin->getSimulateTime();
+        $beforeSabbath = false;
+        $duringSabbath = false;
+        $afterSabbath = false;
+
+        if ($simulateTime) {
+            switch ($simulateTime) {
+                case 'before':
+                    $beforeSabbath = true;
+                    break;
+                case 'during':
+                    $duringSabbath = true;
+                    break;
+                case 'after':
+                    $afterSabbath = true;
+                    break;
+            }
+        } else {
+            $beforeSabbath = date('U') < $plugin->getClosingTime() && date('U') > $plugin->getShowMessageTime();
+            $duringSabbath = date('U') >= $plugin->getClosingTime() && date('U') <= $plugin->getOpeningTime() && date('w') >= $plugin->getClosingDayNumber();
+            $afterSabbath  = date('U') > $plugin->getOpeningTime() && date('w') >= $plugin->getOpeningDayNumber();
+        }
+
 
         if ($request->isSiteRequest()) {
 
@@ -45,13 +65,13 @@ class SunsetToSunsetPlugin extends BasePlugin
             }
 
             // During Sabbath and not on Sabbath URL
-            if ( $duringSabbath && !$urlMatchTemplate ) 
+            if ( $duringSabbath && !$urlMatchTemplate )
             {
                 $request->redirect($template, true, 302);
             }
 
             // After Sabbath
-            if ( $afterSabbath ) 
+            if ( $afterSabbath )
             {
                 // If site is open redirect and on message template
                 if ( $request->isSiteRequest() && $urlMatchTemplate ) {
@@ -88,6 +108,14 @@ class SunsetToSunsetPlugin extends BasePlugin
     /**
      * @return string
      */
+    public function getPluginUrl()
+    {
+        return 'https://github.com/cavellblood/sunsettosunset';
+    }
+
+    /**
+     * @return string
+     */
     public function getReleaseFeedUrl()
     {
         return 'https://raw.githubusercontent.com/cavellblood/sunsettosunset/master/releases.json';
@@ -98,7 +126,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.0.2';
+        return '1.2.0';
     }
 
     /**
@@ -140,7 +168,9 @@ class SunsetToSunsetPlugin extends BasePlugin
     {
         return array(
             'sunsettosunset' => ['action' => 'sunsetToSunset/message/index'],
+            'sunsettosunset/message' => ['action' => 'sunsetToSunset/message/index'],
             'sunsettosunset/location' => ['action' => 'sunsetToSunset/location/index'],
+            'sunsettosunset/advanced' => ['action' => 'sunsetToSunset/advanced/index'],
         );
     }
 
@@ -177,13 +207,17 @@ class SunsetToSunsetPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'latitude' => array(AttributeType::String, 'label' => 'Latitude', 'required' => true, 'default' => '41.8333925'),
-            'longitude' => array(AttributeType::String, 'label' => 'Longitude', 'required' => true, 'default' => '-88.0121473'),
-            'timezone' => array(AttributeType::String, 'label' => 'Time Zone', 'default' => 'America/Chicago'),
-            'guard' => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
-            'message' => array(AttributeType::Mixed, 'label' => 'Message', 'default' => ''),
-            'showMessageTime' => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
-            'templateRedirect' => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
+            'latitude'                 => array(AttributeType::String, 'label' => 'Latitude', 'required' => true, 'default' => '41.8333925'),
+            'longitude'                => array(AttributeType::String, 'label' => 'Longitude', 'required' => true, 'default' => '-88.0121473'),
+            'timezone'                 => array(AttributeType::String, 'label' => 'Time Zone', 'default' => 'America/Chicago'),
+            'guard'                    => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
+            'message'                  => array(AttributeType::Mixed, 'label' => 'Full Message', 'default' => ''),
+            'bannerMessage'            => array(AttributeType::Mixed, 'label' => 'Banner Message', 'default' => ''),
+            'showMessageTime'          => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
+            'templateRedirect'         => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
+            'bannerCssPosition'        => array(AttributeType::String, 'label' => 'Banner CSS Position', 'default' => 'relative'),
+            'bannerCssBackgroundColor' => array(AttributeType::String, 'label' => 'Banner CSS Background Color', 'default' => ''),
+            'simulateTime'             => array(AttributeType::String, 'label' => 'Simulate Time', 'default' => ''),
         );
     }
 

@@ -81,6 +81,46 @@ class SunsetToSunsetService extends BaseApplicationComponent
     /**
      * @return mixed
      */
+    public function getBannerMessage()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['bannerMessage'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBannerCssPosition()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['bannerCssPosition'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBannerCssBackgroundColor()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['bannerCssBackgroundColor'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSimulateTime()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['simulateTime'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getTemplate()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['templateRedirect'];

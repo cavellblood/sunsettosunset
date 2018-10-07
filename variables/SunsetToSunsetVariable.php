@@ -15,11 +15,36 @@ namespace Craft;
 
 class SunsetToSunsetVariable
 {
-    /**
-     */
+
+    public function getPlugin()
+    {
+        return craft()->plugins->getPlugin('sunsettosunset');
+    }
+
+    public function getPluginName()
+    {
+        return $this->getPlugin()->getName();
+    }
+
+    public function getPluginVersion()
+    {
+        return $this->getPlugin()->getVersion();
+    }
+
+    public function getPluginUrl()
+    {
+        return $this->getPlugin()->getPluginUrl();
+    }
+
     public function getMessage()
     {
         return craft()->sunsetToSunset->getMessage();
+    }
+
+
+    public function getBannerMessage()
+    {
+        return craft()->sunsetToSunset->getBannerMessage();
     }
 
     public function getClosingTime()
@@ -32,9 +57,19 @@ class SunsetToSunsetVariable
         return craft()->sunsetToSunset->getOpeningTime();
     }
 
-    public function getSettings()
+    public function getBannerCssPosition()
     {
-        return $this->getPlugin()->getSettings();
+        return craft()->sunsetToSunset->getBannerCssPosition();
+    }
+
+    public function getBannerCssBackgroundColor()
+    {
+        return craft()->sunsetToSunset->getBannerCssBackgroundColor();
+    }
+
+    public function getSimulateTime()
+    {
+        return craft()->sunsetToSunset->getSimulateTime();
     }
 
     public function getTemplate()
@@ -42,10 +77,4 @@ class SunsetToSunsetVariable
         return craft()->sunsetToSunset->getTemplate();
     }
 
-    public function getPluginName()
-    {
-        $plugin = craft()->plugins->getPlugin('sunsettosunset');
-        $result = $plugin->getName();
-        return $result;
-    }
 }

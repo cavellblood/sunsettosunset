@@ -1,0 +1,72 @@
+{% extends "sunsettosunset/_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+{% from "sunsettosunset/_macros" import configWarning %}
+
+{% set crumbs = [
+	{ label: craft.sunsettosunset.getPluginName | t, url: url('sunsettosunset') },
+	{ label: "Advanced" | t, url: url('sunsettosunset/advanced') },
+] %}
+
+{% set selectedTab = 'advanced' %}
+
+{% set fullPageForm = true %}
+
+{% block blockContent %}
+
+	<input type="hidden" name="action" value="plugins/savePluginSettings">
+	<input type="hidden" name="pluginClass" value="SunsetToSunset">
+	<input type="hidden" name="redirect" value="sunsettosunset/advanced">
+
+		{{ forms.selectField({
+			label:        'Banner CSS Position'|t,
+			instructions: 'Set the CSS `position` property for the banner.'|t,
+			id:           'settings-bannerCssPosition',
+			name:         'settings[bannerCssPosition]',
+			value:        settings['bannerCssPosition'],
+			options: {
+				'relative' : 'Relative',
+				'fixed' : 'Fixed',
+			},
+			class:        (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			disabled:     (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)),
+			warning:      (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)) ? configWarning('bannerCssPosition'),
+			errors:       settings.getErrors('bannerCssPosition')
+		}) }}
+
+		{{ forms.textField({
+			label:        'Banner CSS Background Color'|t,
+			instructions: 'Set the CSS `background-color` property for the banner. Any valid CSS color declaration is accepted.'|t,
+			id:           'settings-bannerCssBackgroundColor',
+			name:         'settings[bannerCssBackgroundColor]',
+			value:        settings['bannerCssBackgroundColor'],
+			placeholder:  '#da5a47 or rgb(218, 90, 71)',
+			class:        (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			disabled:     (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)),
+			warning:      (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? configWarning('bannerCssBackgroundColor'),
+			errors:       settings.getErrors('bannerCssBackgroundColor')
+		}) }}
+
+		<hr>
+
+		{{ forms.selectField({
+			label:        'Simulate Time'|t,
+			instructions: 'Test how the banner will appear before, during, and after the Sabbath hours.'|t,
+			id:           'settings-simulateTime',
+			name:         'settings[simulateTime]',
+			value:        settings['simulateTime'],
+			options: {
+				'' : 'No Simulation',
+				'before' : 'Before Sabbath',
+				'during' : 'During Sabbath',
+				'after' : 'After Sabbath',
+			},
+			class:        (craft.config.get('simulateTime', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			disabled:     (craft.config.get('simulateTime', 'sunsettosunset') is not sameas(null)),
+			warning:      (craft.config.get('simulateTime', 'sunsettosunset') is not sameas(null)) ? configWarning('simulateTime'),
+			errors:       settings.getErrors('simulateTime')
+		}) }}
+
+		{#<h2>Troubleshooting</h2>#}
+		{#<p><a class="btn" href="{{ url('utils/logs/sunsettosunset.log') }}">View logs</a></p>#}
+
+{% endblock %}

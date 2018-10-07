@@ -1,24 +1,39 @@
 {% extends "_layouts/cp" %}
 {% import "_includes/forms" as forms %}
 
-{% includeCssResource "sunsettosunset/css/SunsetToSunset_Style.css" %}
+{% includeCssResource "sunsettosunset/css/SunsetToSunset.css" %}
 {% includeJsResource "sunsettosunset/js/SunsetToSunset_Script.js" %}
 
-{% set title = craft.sunsettosunset.getPluginName() %}
 
-{% if craft.config.get('advancedMode', 'sunsettosunset') %}
+{% set tabs = {
+	message: { label: "Message"|t, url: url('sunsettosunset') },
+	location: { label: "Location"|t, url: url('sunsettosunset/location') },
+	advanced: { label: "Advanced"|t, url: url('sunsettosunset/advanced') },
+} %}
 
-    {% set tabs = {
-        message: { label: "Settings"|t, url: url('sunsettosunset') },
-        location: { label: "Location"|t, url: url('sunsettosunset/location') },
-        logs: { label: "Logs"|t, url: url('sunsettosunset/logs') },
-    } %}
-
-{% else %}
-
-    {% set tabs = {
-        message: { label: "Settings"|t, url: url('sunsettosunset') },
-        location: { label: "Location"|t, url: url('sunsettosunset/location') },
-    } %}
-
+{% if title is not defined %}
+	{% set title = craft.sunsettosunset.getPluginName ~ ' ' ~ tabs[selectedTab].label ?? '' %}
 {% endif %}
+
+
+{% set content %}
+	{% block blockContent %}
+
+	{% endblock %}
+
+    <hr>
+
+    <div class="plugin-footer">
+        <div class="footer-left">
+			{% block footerButton %}
+
+			{% endblock %}
+        </div>
+
+        <div class="footer-right">
+            <div class="plugin-credit">
+                <p>{{ craft.sunsetToSunset.getPluginName }} {{ craft.sunsetToSunset.getPluginVersion }} &bull; <a href="{{ craft.sunsetToSunset.getPluginUrl }}" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+    </div>
+{% endset %}
