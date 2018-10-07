@@ -21,4 +21,19 @@
 
 	{% endblock %}
 
+    <hr>
+
+    <div class="plugin-footer">
+        <div class="footer-left">
+			{% block footerButton %}
+
+			{% endblock %}
+        </div>
+
+        <div class="footer-right">
+            <div class="plugin-credit">
+                <p>{{ craft.sunsetToSunset.getPluginName }} {{ craft.sunsetToSunset.getPluginVersion }} &bull; <a href="{{ craft.sunsetToSunset.getPluginUrl }}" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+    </div>
 {% endset %}
