@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 Cavell L. Blood
  * @link      cavellblood.com
  * @package   SunsetToSunset
- * @since     1.1.1
+ * @since     1.2.0
  */
 
 namespace Craft;
