@@ -54,8 +54,6 @@ class SunsetToSunsetVariable
 
     public function getPluginName()
     {
-        $plugin = craft()->plugins->getPlugin('sunsettosunset');
-        $result = $plugin->getName();
-        return $result;
+        return craft()->plugins->getPlugin('sunsettosunset')->getName();
     }
 }
