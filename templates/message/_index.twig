@@ -11,15 +11,13 @@
         <input type="hidden" name="pluginClass" value="SunsetToSunset">
         <input type="hidden" name="redirect" value="sunsettosunset">
 
-        {# <p>{{ "Message explaining what the template does."|t }}</p> #}
-
         {{ forms.textareaField({
-            label: 'Message'|t,
-            instructions: 'Enter the message that should be shown before the store closes.'|t,
-            id: 'settings-message',
-            name: 'settings[message]',
+            label: 'Banner Message'|t,
+            instructions: 'Enter the message that should be shown in the banner before the store closes.'|t,
+            id: 'settings-bannerMessage',
+            name: 'settings[bannerMessage]',
             placeholder: '',
-            value: settings['message']
+            value: settings['bannerMessage']
         }) }}
 
         <div class="field">
