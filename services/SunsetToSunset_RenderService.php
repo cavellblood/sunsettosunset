@@ -25,7 +25,7 @@ class SunsetToSunset_RenderService extends BaseApplicationComponent
         craft()->path->setTemplatesPath($newTemplatesPath);
 
         $vars = array(
-            'message' => $settings->attributes['message'],
+            'bannerMessage' => $settings->attributes['bannerMessage'],
             'closingTime' => $plugin->getClosingTime()
         );
 
