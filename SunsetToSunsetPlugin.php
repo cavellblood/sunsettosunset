@@ -186,6 +186,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'showMessageTime'  => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect' => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
             'bannerCss'        => array(AttributeType::Mixed, 'label' => 'Banner CSS', 'default' => ''),
+            'simulateTime'     => array(AttributeType::Mixed, 'label' => 'Simulate Time', 'default' => ''),
         );
     }
 
