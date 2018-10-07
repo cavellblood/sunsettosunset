@@ -4,21 +4,20 @@
 {% includeCssResource "sunsettosunset/css/SunsetToSunset_Style.css" %}
 {% includeJsResource "sunsettosunset/js/SunsetToSunset_Script.js" %}
 
-{% set title = craft.sunsettosunset.getPluginName() %}
-
-{% if craft.config.devMode %}
-
-    {% set tabs = {
-        message: { label: "Settings"|t, url: url('sunsettosunset') },
-        location: { label: "Location"|t, url: url('sunsettosunset/location') },
-        advanced: { label: "Advanced"|t, url: url('sunsettosunset/advanced') },
-    } %}
-
-{% else %}
-
-    {% set tabs = {
-        message: { label: "Settings"|t, url: url('sunsettosunset') },
-        location: { label: "Location"|t, url: url('sunsettosunset/location') },
-    } %}
-
+{% if title is not defined %}
+	{% set title = craft.sunsettosunset.getPluginName ~ ' ' ~ tabs[selectedTab].label ?? '' %}
 {% endif %}
+
+
+{% set tabs = {
+	message: { label: "Settings"|t, url: url('sunsettosunset') },
+	location: { label: "Location"|t, url: url('sunsettosunset/location') },
+	advanced: { label: "Advanced"|t, url: url('sunsettosunset/advanced') },
+} %}
+
+{% set content %}
+	{% block blockContent %}
+
+	{% endblock %}
+
+{% endset %}
