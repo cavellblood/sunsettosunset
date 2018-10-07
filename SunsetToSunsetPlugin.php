@@ -198,15 +198,16 @@ class SunsetToSunsetPlugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'latitude'         => array(AttributeType::String, 'label' => 'Latitude', 'required' => true, 'default' => '41.8333925'),
-            'longitude'        => array(AttributeType::String, 'label' => 'Longitude', 'required' => true, 'default' => '-88.0121473'),
-            'timezone'         => array(AttributeType::String, 'label' => 'Time Zone', 'default' => 'America/Chicago'),
-            'guard'            => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
-            'message'          => array(AttributeType::Mixed, 'label' => 'Message', 'default' => ''),
-            'showMessageTime'  => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
-            'templateRedirect' => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
-            'bannerCss'        => array(AttributeType::Mixed, 'label' => 'Banner CSS', 'default' => ''),
-            'simulateTime'     => array(AttributeType::Mixed, 'label' => 'Simulate Time', 'default' => ''),
+            'latitude'                 => array(AttributeType::String, 'label' => 'Latitude', 'required' => true, 'default' => '41.8333925'),
+            'longitude'                => array(AttributeType::String, 'label' => 'Longitude', 'required' => true, 'default' => '-88.0121473'),
+            'timezone'                 => array(AttributeType::String, 'label' => 'Time Zone', 'default' => 'America/Chicago'),
+            'guard'                    => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
+            'message'                  => array(AttributeType::Mixed, 'label' => 'Message', 'default' => ''),
+            'showMessageTime'          => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
+            'templateRedirect'         => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
+            'bannerCssPosition'        => array(AttributeType::String, 'label' => 'Banner CSS Position', 'default' => 'relative'),
+            'bannerCssBackgroundColor' => array(AttributeType::String, 'label' => 'Banner CSS Background Color', 'default' => ''),
+            'simulateTime'             => array(AttributeType::String, 'label' => 'Simulate Time', 'default' => ''),
         );
     }
 

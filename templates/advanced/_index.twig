@@ -29,6 +29,18 @@
 			warning:      (craft.config.get('bannerCssPosition', 'sunsettosunset') is not sameas(null)) ? configWarning('bannerCssPosition'),
 			errors:       settings.getErrors('bannerCssPosition')
 		}) }}
+
+		{{ forms.textField({
+			label:        'Banner CSS Background Color'|t,
+			instructions: 'Set the CSS `background-color` property for the banner. Any valid CSS color declaration is accepted.'|t,
+			id:           'settings-bannerCssBackgroundColor',
+			name:         'settings[bannerCssBackgroundColor]',
+			value:        settings['bannerCssBackgroundColor'],
+			placeholder:  '#da5a47 or rgb(218, 90, 71)',
+			class:        (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			disabled:     (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)),
+			warning:      (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? configWarning('bannerCssBackgroundColor'),
+			errors:       settings.getErrors('bannerCssBackgroundColor')
 		}) }}
 
 		{{ forms.selectField({
