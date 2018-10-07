@@ -91,6 +91,16 @@ class SunsetToSunsetService extends BaseApplicationComponent
     /**
      * @return mixed
      */
+    public function getSimulateTime()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['simulateTime'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getTemplate()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['templateRedirect'];
