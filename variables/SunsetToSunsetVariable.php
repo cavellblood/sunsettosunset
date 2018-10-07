@@ -27,6 +27,14 @@ class SunsetToSunsetVariable
     /**
      * @return mixed
      */
+    public function getBannerMessage()
+    {
+        return craft()->sunsetToSunset->getBannerMessage();
+    }
+
+    /**
+     * @return mixed
+     */
     public function getClosingTime()
     {
         return craft()->sunsetToSunset->getClosingTime();
