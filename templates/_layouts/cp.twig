@@ -6,12 +6,12 @@
 
 {% set title = craft.sunsettosunset.getPluginName() %}
 
-{% if craft.config.get('advancedMode', 'sunsettosunset') %}
+{% if craft.config.devMode %}
 
     {% set tabs = {
         message: { label: "Settings"|t, url: url('sunsettosunset') },
         location: { label: "Location"|t, url: url('sunsettosunset/location') },
-        logs: { label: "Logs"|t, url: url('sunsettosunset/logs') },
+        advanced: { label: "Advanced"|t, url: url('sunsettosunset/advanced') },
     } %}
 
 {% else %}

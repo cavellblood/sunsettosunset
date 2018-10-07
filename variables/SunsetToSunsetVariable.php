@@ -32,9 +32,9 @@ class SunsetToSunsetVariable
         return craft()->sunsetToSunset->getOpeningTime();
     }
 
-    public function getSettings()
+    public function getBannerCss()
     {
-        return $this->getPlugin()->getSettings();
+        return craft()->sunsetToSunset->getBannerCss();
     }
 
     public function getTemplate()

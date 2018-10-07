@@ -141,6 +141,7 @@ class SunsetToSunsetPlugin extends BasePlugin
         return array(
             'sunsettosunset' => ['action' => 'sunsetToSunset/message/index'],
             'sunsettosunset/location' => ['action' => 'sunsetToSunset/location/index'],
+            'sunsettosunset/advanced' => ['action' => 'sunsetToSunset/advanced/index'],
         );
     }
 

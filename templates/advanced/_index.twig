@@ -1,0 +1,37 @@
+{% extends "sunsettosunset/_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+{% from "sunsettosunset/_macros" import configWarning %}
+
+{% set selectedTab = 'advanced' %}
+
+{% set content %}
+
+	<form method="post" action="" accept-charset="UTF-8" data-saveshortcut data-confirm-unload>
+
+		{{ getCsrfInput() }}
+
+		<input type="hidden" name="action" value="plugins/savePluginSettings">
+		<input type="hidden" name="pluginClass" value="SunsetToSunset">
+		<input type="hidden" name="redirect" value="sunsettosunset/advanced">
+
+		{{ forms.textareaField({
+			label:        'Custom CSS'|t,
+			class:        'code',
+			instructions: 'Set any custom CSS for the banner.'|t,
+			id:           'settings-banner-css',
+			name:         'settings[bannerCss]',
+			value:        settings['bannerCss'],
+			placeholder:  '',
+			value:        settings['bannerCss']
+		}) }}
+
+		{#<h2>Troubleshooting</h2>#}
+		{#<p><a class="btn" href="{{ url('utils/logs/sunsettosunset.log') }}">View logs</a></p>#}
+
+		<div class="buttons">
+			<input class="btn submit" type="submit" value="{{ 'Save'|t }}">
+		</div>
+
+	</form>
+
+{% endset %}
