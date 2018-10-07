@@ -25,6 +25,24 @@
 			value:        settings['bannerCss']
 		}) }}
 
+		{{ forms.selectField({
+			label:        'Simulate Time'|t,
+			instructions: 'Test how the banner will appear before, during, and after the Sabbath hours.'|t,
+			id:           'settings-simulateTime',
+			name:         'settings[simulateTime]',
+			value:        settings['simulateTime'],
+			options: {
+				'' : 'No Simulation',
+				'before' : 'Before Sabbath',
+				'during' : 'During Sabbath',
+				'after' : 'After Sabbath',
+			},
+			class:        (craft.config.get('simulateTime', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			disabled:     (craft.config.get('simulateTime', 'sunsettosunset') is not sameas(null)),
+			warning:      (craft.config.get('simulateTime', 'sunsettosunset') is not sameas(null)) ? configWarning('simulateTime'),
+			errors:       settings.getErrors('simulateTime')
+		}) }}
+
 		{#<h2>Troubleshooting</h2>#}
 		{#<p><a class="btn" href="{{ url('utils/logs/sunsettosunset.log') }}">View logs</a></p>#}
 
