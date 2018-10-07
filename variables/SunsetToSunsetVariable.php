@@ -16,6 +16,26 @@ namespace Craft;
 class SunsetToSunsetVariable
 {
 
+    public function getPlugin()
+    {
+        return craft()->plugins->getPlugin('sunsettosunset');
+    }
+
+    public function getPluginName()
+    {
+        return $this->getPlugin()->getName();
+    }
+
+    public function getPluginVersion()
+    {
+        return $this->getPlugin()->getVersion();
+    }
+
+    public function getPluginUrl()
+    {
+        return $this->getPlugin()->getPluginUrl();
+    }
+
     public function getMessage()
     {
         return craft()->sunsetToSunset->getMessage();
@@ -57,11 +77,4 @@ class SunsetToSunsetVariable
         return craft()->sunsetToSunset->getTemplate();
     }
 
-    /**
-     * @return string
-     */
-    public function getPluginName()
-    {
-        return craft()->plugins->getPlugin('sunsettosunset')->getName();
-    }
 }
