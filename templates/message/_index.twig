@@ -1,82 +1,77 @@
 {% extends "sunsettosunset/_layouts/cp" %}
 {% import "_includes/forms" as forms %}
+{% from "sunsettosunset/_macros" import configWarning %}
 
 {% set crumbs = [
 	{ label: craft.sunsettosunset.getPluginName | t, url: url('sunsettosunset') },
-	{ label: "Settings" | t, url: url('sunsettosunset/settings') },
+	{ label: "Message" | t, url: url('sunsettosunset/message') },
 ] %}
 
-{% set content %}
+{% set selectedTab = 'message' %}
 
-    <form method="post" action="" accept-charset="UTF-8" data-saveshortcut data-confirm-unload>
+{% set fullPageForm = true %}
 
-        {{ getCsrfInput() }}
+{% block blockContent %}
 
-        <input type="hidden" name="action" value="plugins/savePluginSettings">
-        <input type="hidden" name="pluginClass" value="SunsetToSunset">
-        <input type="hidden" name="redirect" value="sunsettosunset">
+    <input type="hidden" name="action" value="plugins/savePluginSettings">
+    <input type="hidden" name="pluginClass" value="SunsetToSunset">
+    <input type="hidden" name="redirect" value="sunsettosunset">
 
-        {{ forms.textareaField({
-            label: 'Banner Message'|t,
-            instructions: 'Enter the message that should be shown in the banner before the store closes.'|t,
-            id: 'settings-bannerMessage',
-            name: 'settings[bannerMessage]',
-            placeholder: '',
-            value: settings['bannerMessage']
-        }) }}
+    {{ forms.textareaField({
+        label: 'Banner Message'|t,
+        instructions: 'Enter the message that should be shown in the banner before the store closes.'|t,
+        id: 'settings-bannerMessage',
+        name: 'settings[bannerMessage]',
+        placeholder: '',
+        value: settings['bannerMessage']
+    }) }}
 
-        <div class="field">
-            <div class="half-width-field  half-width-field-left">
-                {{ forms.textField({
-                    label: 'Show Banner Message Time'|t,
-                    instructions: 'Enter the **number of minutes** before sunset that the banner message should appear.'|t,
-                    id: 'settings-showMessageTime',
-                    name: 'settings[showMessageTime]', 
-                    type: 'number',
-                    placeholder: '',
-                    value: settings['showMessageTime']
-                }) }}
-            </div>
-
-            <div class="half-width-field">
-                {{ forms.textField({
-                    label: 'Guard'|t,
-                    instructions: 'Enter the **number of minutes** to add to the edges of the Sabbath hours.'|t,
-                    id: 'settings-guard',
-                    name: 'settings[guard]',
-                    type: 'number',
-                    placeholder: '',
-                    value: settings['guard']
-                }) }}
-            </div>
+    <div class="field">
+        <div class="half-width-field  half-width-field-left">
+            {{ forms.textField({
+                label: 'Show Banner Message Time'|t,
+                instructions: 'Enter the **number of minutes** before sunset that the banner message should appear.'|t,
+                id: 'settings-showMessageTime',
+                name: 'settings[showMessageTime]',
+                type: 'number',
+                placeholder: '',
+                value: settings['showMessageTime']
+            }) }}
         </div>
 
-        <hr>
-
-	    {{ forms.textareaField({
-		    label: 'Full Message'|t,
-		    instructions: 'Enter the full message that should be shown during Sabbath.'|t,
-		    id: 'settings-message',
-		    name: 'settings[message]',
-		    placeholder: '',
-		    value: settings['message']
-	    }) }}
-
-        {{ forms.textField({
-            label: 'Template Redirect'|t,
-            class: 'code',
-            instructions: 'Enter the template that will display the full message above during the Sabbath hours. <span class="error">**Template must exist**</span> and have `{{ craft.sunsettosunset.message }}` to display the message.'|t,
-            id: 'settings-templateRedirect',
-            name: 'settings[templateRedirect]', 
-            type: 'text',
-            placeholder: '/sabbath',
-            value: settings['templateRedirect']
-        }) }}
-
-        <div class="buttons">
-            <input class="btn submit" type="submit" value="{{ 'Save'|t }}">
+        <div class="half-width-field">
+            {{ forms.textField({
+                label: 'Guard'|t,
+                instructions: 'Enter the **number of minutes** to add to the edges of the Sabbath hours.'|t,
+                id: 'settings-guard',
+                name: 'settings[guard]',
+                type: 'number',
+                placeholder: '',
+                value: settings['guard']
+            }) }}
         </div>
+    </div>
 
-    </form>
+    <hr>
 
-{% endset %}
+    {{ forms.textareaField({
+	    label: 'Full Message'|t,
+	    instructions: 'Enter the full message that should be shown during Sabbath.'|t,
+	    id: 'settings-message',
+	    name: 'settings[message]',
+	    placeholder: '',
+	    value: settings['message']
+    }) }}
+
+    {{ forms.textField({
+        label: 'Template Redirect'|t,
+        class: 'code',
+        instructions: 'Enter the template that will display the full message above during the Sabbath hours. <span class="error">**Template must exist**</span> and have `{{ craft.sunsettosunset.message }}` to display the message.'|t,
+        id: 'settings-templateRedirect',
+        name: 'settings[templateRedirect]',
+        type: 'text',
+        placeholder: '/sabbath',
+        value: settings['templateRedirect']
+    }) }}
+
+{% endblock %}
