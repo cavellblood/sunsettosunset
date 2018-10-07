@@ -7,7 +7,7 @@
 * The **Simulate Time** setting allows you to simulate how the plugin would function before, during, and after the Sabbath.
 * Breadcrumb navigation to the settings pages.
 
-## Improved
+### Improved
 * Clarified setting instructions for the banner message.
 * All settings tabs have been updated to use the `fullPageForm`. The **Save** button is now in the top right of each page.
 
