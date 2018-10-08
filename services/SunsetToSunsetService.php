@@ -190,15 +190,12 @@ class SunsetToSunsetService extends BaseApplicationComponent
      */
     public function render()
     {
-        $plugin = craft()->plugins->getPlugin('sunsettosunset');
-        $settings = $plugin->getSettings();
-
         $oldTemplatesPath = craft()->path->getTemplatesPath();
         $newTemplatesPath = craft()->path->getPluginsPath().'sunsettosunset/templates/';
         craft()->path->setTemplatesPath($newTemplatesPath);
 
         $vars = array(
-            'message' => $settings->attributes['message'],
+            'bannerMessage' => craft()->sunsetToSunset->getBannerMessage(),
             'openingTime' => craft()->sunsetToSunset->getOpeningTime(),
             'closingTime' => craft()->sunsetToSunset->getClosingTime()
         );
