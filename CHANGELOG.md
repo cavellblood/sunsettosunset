@@ -1,5 +1,9 @@
 # Sunset to Sunset Changelog
 
+## 1.2.1 - 2018-10-07
+### Fixed
+* Render service was sending the wrong variable name. This has been corrected.
+
 ## 1.2.0 - 2018-10-07
 ### Added
 * Ability to set `position` and `background-color` for banner.

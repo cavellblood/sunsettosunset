@@ -49,5 +49,13 @@
             "[Improved] Clarified setting instructions for the banner message.",
             "[Improved] All settings tabs have been updated to use the `fullPageForm`. The *Save* button is now in the top right of each page."
         ]
+    },
+    {
+        "version": "1.2.1",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.2.1.zip",
+        "date": "2018-10-07T11:00:00-13:25",
+        "notes": [
+            "[Fixed] Render service was sending the wrong variable name. This has been corrected."
+        ]
     }
 ]
