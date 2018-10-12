@@ -136,7 +136,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.2.2';
+        return '1.3.0';
     }
 
     /**
