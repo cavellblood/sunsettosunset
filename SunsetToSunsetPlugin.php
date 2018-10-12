@@ -25,8 +25,7 @@ class SunsetToSunsetPlugin extends BasePlugin
         $request = craft()->request;
 
         $template = $plugin->getTemplate();
-        $requestUrl = $request->url;
-        $urlMatchTemplate = ($requestUrl === $template);
+        $urlMatchTemplate = ($request->url === $template);
 
         $simulateTime = $plugin->getSimulateTime();
         $beforeSabbath = false;
@@ -67,7 +66,18 @@ class SunsetToSunsetPlugin extends BasePlugin
             // During Sabbath and not on Sabbath URL
             if ( $duringSabbath && !$urlMatchTemplate )
             {
-                $request->redirect($template, true, 302);
+                // Convert specific redirect urls to array
+                $specificRedirectUrls = preg_split("/\r\n|\n|\r/", $plugin->getSpecificRedirectUrls());
+
+                if (count($specificRedirectUrls)) {
+                    foreach ($specificRedirectUrls as $url) {
+                        if (preg_match('('. $url . ')i', $request->url)) {
+                            $request->redirect($template, true, 302);
+                        }
+                    }
+                } else {
+                    $request->redirect($template, true, 302);
+                }
             }
 
             // After Sabbath
@@ -215,6 +225,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'bannerMessage'            => array(AttributeType::String, 'label' => 'Banner Message', 'default' => ''),
             'showMessageTime'          => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect'         => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
+            'specificRedirectUrls'     => array(AttributeType::Mixed, 'label' => 'Specific Redirect URLs', 'default' => ''),
             'bannerCssPosition'        => array(AttributeType::String, 'label' => 'Banner CSS Position', 'default' => 'relative'),
             'bannerCssBackgroundColor' => array(AttributeType::String, 'label' => 'Banner CSS Background Color', 'default' => ''),
             'simulateTime'             => array(AttributeType::String, 'label' => 'Simulate Time', 'default' => ''),
