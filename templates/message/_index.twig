@@ -26,6 +26,15 @@
         value: settings['bannerMessage']
     }) }}
 
+	{{ forms.textareaField({
+		label: 'Full Message'|t,
+		instructions: 'Enter the full message that should be shown during Sabbath.'|t,
+		id: 'settings-message',
+		name: 'settings[message]',
+		placeholder: '',
+		value: settings['message']
+	}) }}
+
     <div class="field">
         <div class="half-width-field  half-width-field-left">
             {{ forms.textField({
@@ -53,15 +62,6 @@
     </div>
 
     <hr>
-
-    {{ forms.textareaField({
-	    label: 'Full Message'|t,
-	    instructions: 'Enter the full message that should be shown during Sabbath.'|t,
-	    id: 'settings-message',
-	    name: 'settings[message]',
-	    placeholder: '',
-	    value: settings['message']
-    }) }}
 
     {{ forms.textField({
         label: 'Template Redirect'|t,
