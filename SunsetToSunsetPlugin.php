@@ -215,6 +215,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'bannerMessage'            => array(AttributeType::String, 'label' => 'Banner Message', 'default' => ''),
             'showMessageTime'          => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect'         => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
+            'redirectOnSpecificUrls'   => array(AttributeType::Mixed, 'label' => 'Redirect on Specific URLs', 'default' => ''),
             'bannerCssPosition'        => array(AttributeType::String, 'label' => 'Banner CSS Position', 'default' => 'relative'),
             'bannerCssBackgroundColor' => array(AttributeType::String, 'label' => 'Banner CSS Background Color', 'default' => ''),
             'simulateTime'             => array(AttributeType::String, 'label' => 'Simulate Time', 'default' => ''),
