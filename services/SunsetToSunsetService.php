@@ -129,6 +129,16 @@ class SunsetToSunsetService extends BaseApplicationComponent
     }
 
     /**
+     * @return mixed
+     */
+    public function getSpecificRedirectUrls()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['specificRedirectUrls'];
+
+        return $result;
+    }
+
+    /**
      * @return int
      */
     public function getClosingDayNumber()
