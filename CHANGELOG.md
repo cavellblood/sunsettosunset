@@ -1,5 +1,12 @@
 # Sunset to Sunset Changelog
 
+## 1.2.2 - 2018-10-12
+### Improved
+* Banner is now set to `width: 100%;` when `position` is `fixed`.
+
+### Changed
+* Banner message now uses a text field instead of textarea field to encourage a short message. Full message can be added in the **Full Message** settings input.
+
 ## 1.2.1 - 2018-10-07
 ### Fixed
 * Render service was sending the wrong variable name. This has been corrected.

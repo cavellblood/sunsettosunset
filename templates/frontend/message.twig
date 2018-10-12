@@ -1,9 +1,9 @@
 {% includeCssResource "sunsettosunset/css/SunsetToSunset.css" %}
-
-<div class="sts__container"
+{% set plugin = craft.sunsettosunset %}
+<div class="sts__container  {{ plugin.bannerCssPosition == 'fixed' ? 'sts__container--fixed' }}"
 	style="
-		{{ craft.sunsettosunset.bannerCssPosition ? 'position: ' ~ craft.sunsettosunset.bannerCssPosition ~ ';' }}
-		{{ craft.sunsettosunset.bannerCssBackgroundColor ? 'background-color: ' ~ craft.sunsettosunset.bannerCssBackgroundColor ~ ';' }}
+		{{ plugin.bannerCssPosition ? 'position: ' ~ plugin.bannerCssPosition ~ ';' }}
+		{{ plugin.bannerCssBackgroundColor ? 'background-color: ' ~ plugin.bannerCssBackgroundColor ~ ';' }}
 	"
 >
 	<div class="sts__message">
