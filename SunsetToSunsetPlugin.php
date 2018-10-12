@@ -212,7 +212,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'timezone'                 => array(AttributeType::String, 'label' => 'Time Zone', 'default' => 'America/Chicago'),
             'guard'                    => array(AttributeType::Number, 'label' => 'Guard', 'default' => '30'),
             'message'                  => array(AttributeType::Mixed, 'label' => 'Full Message', 'default' => ''),
-            'bannerMessage'            => array(AttributeType::Mixed, 'label' => 'Banner Message', 'default' => ''),
+            'bannerMessage'            => array(AttributeType::String, 'label' => 'Banner Message', 'default' => ''),
             'showMessageTime'          => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect'         => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
             'bannerCssPosition'        => array(AttributeType::String, 'label' => 'Banner CSS Position', 'default' => 'relative'),
