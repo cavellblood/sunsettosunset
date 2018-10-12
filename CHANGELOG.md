@@ -1,5 +1,9 @@
 # Sunset to Sunset Changelog
 
+## 1.3.0 - 2018-10-12
+### Added
+* Plugin now has the option to only redirect when the requested url starts with one of the user-specified redirect urls. Before it would redirect everything. This is still possible if no specific redirect urls are added.
+
 ## 1.2.2 - 2018-10-12
 ### Improved
 * Banner is now set to `width: 100%;` when `position` is `fixed`.
