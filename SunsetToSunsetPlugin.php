@@ -25,8 +25,7 @@ class SunsetToSunsetPlugin extends BasePlugin
         $request = craft()->request;
 
         $template = $plugin->getTemplate();
-        $requestUrl = $request->url;
-        $urlMatchTemplate = ($requestUrl === $template);
+        $urlMatchTemplate = ($request->url === $template);
 
         $simulateTime = $plugin->getSimulateTime();
         $beforeSabbath = false;
