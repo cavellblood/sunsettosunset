@@ -66,7 +66,18 @@ class SunsetToSunsetPlugin extends BasePlugin
             // During Sabbath and not on Sabbath URL
             if ( $duringSabbath && !$urlMatchTemplate )
             {
-                $request->redirect($template, true, 302);
+                // Convert specific redirect urls to array
+                $specificRedirectUrls = preg_split("/\r\n|\n|\r/", $plugin->getSpecificRedirectUrls());
+
+                if (count($specificRedirectUrls)) {
+                    foreach ($specificRedirectUrls as $url) {
+                        if (preg_match('('. $url . ')i', $request->url)) {
+                            $request->redirect($template, true, 302);
+                        }
+                    }
+                } else {
+                    $request->redirect($template, true, 302);
+                }
             }
 
             // After Sabbath
