@@ -30,6 +30,10 @@ div.half-width-field-left {
 	padding: 0.5rem 0;
 }
 
+.sts__container--fixed {
+	width: 100%;
+}
+
 .sts__message {
 	margin: 0.75rem 2rem;
 }
