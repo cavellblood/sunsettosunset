@@ -73,7 +73,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             // After Sabbath
             if ( $afterSabbath )
             {
-                // If site is open redirect and on message template
+                // If site is open and on message template redirect
                 if ( $request->isSiteRequest() && $urlMatchTemplate ) {
                     $request->redirect('/', true, 302);
                 }
