@@ -32,6 +32,8 @@ div.half-width-field-left {
 
 .sts__container--fixed {
 	width: 100%;
+	z-index: 100;
+	top: 0;
 }
 
 .sts__message {
