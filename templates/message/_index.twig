@@ -75,15 +75,15 @@
     }) }}
 
 	{{ forms.textareaField({
-		label: 'Redirect on Spefic URLs'|t,
+		label: 'Spefic Redirect URLs'|t,
 		class: 'code',
 		instructions: 'Enter the specific urls that the plugin should redirect to the template shown during Sabbath hours. **Enter each URL on a new line.** <br>For example, if you only want to redirct `' ~ siteUrl ~ 'store` then enter `/store` in the field below.'|t,
-		id: 'settings-redirectOnSpecificUrls',
-		name: 'settings[redirectOnSpecificUrls]',
+		id: 'settings-specificRedirectUrls',
+		name: 'settings[specificRedirectUrls]',
 		type: 'text',
 		placeholder: '',
 		rows: 5,
-		value: settings['redirectOnSpecificUrls']
+		value: settings['specificRedirectUrls']
 	}) }}
 
 {% endblock %}
