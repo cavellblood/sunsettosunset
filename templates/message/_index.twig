@@ -77,11 +77,49 @@
 	{{ forms.textareaField({
 		label: 'Spefic Redirect URLs'|t,
 		class: 'code',
-		instructions: 'Enter the specific urls that the plugin should redirect to the template shown during Sabbath hours. **Enter each URL on a new line.** <br>For example, if you only want to redirct `' ~ siteUrl ~ 'store` then enter `/store` in the field below.'|t,
+		instructions: 'The plugin will only redirect to the template above if the requested url <span class="error">**starts with**</span> one of the urls below.
+
+### Examples:
+
+<table class="data fullwidth collapsible">
+	<thead>
+	<tr>
+		<th>Specific URL</th>
+		<th>Matches URL starting with</th>
+		<th>Redirects to</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>/store</code></td>
+			<td><code>' ~ siteUrl ~ 'store</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+		<tr>
+			<td><code>/</code></td>
+			<td><code>' ~ siteUrl ~ '</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+		<tr>
+			<td><code>/news</code></td>
+			<td><code>' ~ siteUrl ~ 'news</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+		<tr>
+			<td><code>/news/' ~ now | date('Y') ~ '</code></td>
+			<td><code>' ~ siteUrl ~ 'news/' ~ now | date('Y') ~ '</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+	</tbody>
+</table>
+
+**Enter each URL on a new line.**',
+
+
 		id: 'settings-specificRedirectUrls',
 		name: 'settings[specificRedirectUrls]',
 		type: 'text',
-		placeholder: '',
+		placeholder: 'Leave empty to redirect every page.',
 		rows: 5,
 		value: settings['specificRedirectUrls']
 	}) }}
