@@ -1,5 +1,9 @@
 # Sunset to Sunset Changelog
 
+## 1.4.1 - 2018-10-19
+### Fixed
+* `showBannerOnSpecificUrls` setting will now be disabled when set via the config file.
+
 ## 1.4.0 - 2018-10-19
 ### Added
 * Banner can be set to only show on urls set in the `specificRedirectUrls`. This way it only gives the message to those visiting the pages that will be closed on the Sabbath.
