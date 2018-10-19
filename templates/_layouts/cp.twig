@@ -4,20 +4,37 @@
 {% includeCssResource "sunsettosunset/css/SunsetToSunset.css" %}
 {% includeJsResource "sunsettosunset/js/SunsetToSunset_Script.js" %}
 
-
-{% set tabs = {
-	message: { label: "Message"|t, url: url('sunsettosunset') },
-	location: { label: "Location"|t, url: url('sunsettosunset/location') },
-	advanced: { label: "Advanced"|t, url: url('sunsettosunset/advanced') },
+{% set sunsetToSunsetSections = {
+	message: { label: "Message"|t, url: url(craft.sunsettosunset.getSettingsUrl() ~ '/message') },
+	location: { label: "Location"|t, url: url(craft.sunsettosunset.getSettingsUrl() ~ '/location') },
+	template: { label: "Template"|t, url: url(craft.sunsettosunset.getSettingsUrl() ~ '/template') },
+	advanced: { label: "Advanced"|t, url: url(craft.sunsettosunset.getSettingsUrl() ~ '/advanced') },
 } %}
 
-{% if title is not defined %}
-	{% set title = craft.sunsettosunset.getPluginName ~ ' ' ~ tabs[selectedTab].label ?? '' %}
+{% if craft.app.version < 2.5 %}
+	{% set tabs = sunsetToSunsetSections %}
+{% else %}
+	{% set subnav = sunsetToSunsetSections %}
 {% endif %}
 
+{% set crumbs = [
+	{
+		label: craft.sunsettosunset.getPluginName(),
+		url: url(craft.sunsettosunset.getSettingsUrl())
+	},
+	{
+		label: sunsetToSunsetSections[(selectedTab ?? selectedSubnavItem)].label,
+		url: sunsetToSunsetSections[(selectedTab ?? selectedSubnavItem)].url
+	},
+] %}
+
+{% if title is not defined %}
+	{% set title = craft.sunsettosunset.getPluginName %}
+{% endif %}
 
 {% set content %}
 	{% block blockContent %}
+		<h2>{{ sunsetToSunsetSections[(selectedTab ?? selectedSubnavItem)].label }}</h2>
 
 	{% endblock %}
 
