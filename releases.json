@@ -85,5 +85,13 @@
             "[Improved] Updated the display of several of the input fields in the settings.",
             "[Improved] Template redirect settings now has it’s own settings page."
         ]
+    },
+    {
+        "version": "1.4.1",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.4.1.zip",
+        "date": "2018-10-19T11:00:00-12:33",
+        "notes": [
+            "[Fixed] `showBannerOnSpecificUrls` setting will now be disabled when set via the config file."
+        ]
     }
 ]
