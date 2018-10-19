@@ -1,0 +1,76 @@
+{% extends "sunsettosunset/_layouts/cp" %}
+{% from "sunsettosunset/_macros" import configWarning %}
+
+{% if craft.app.version < 2.5 %}
+	{% set selectedTab = 'location' %}
+{% else %}
+	{% set selectedSubnavItem = 'location' %}
+{% endif %}
+
+{% set fullPageForm = true %}
+
+{% block blockContent %}
+	{{ parent() }}
+
+    <input type="hidden" name="action" value="plugins/savePluginSettings">
+    <input type="hidden" name="pluginClass" value="SunsetToSunset">
+    <input type="hidden" name="redirect" value="sunsettosunset/location">
+
+
+    {{ forms.textField({
+        label:        'Latitude'|t,
+        required:     true,
+        instructions: 'Enter the latitude of the target sunset location.'|t,
+        id:           'settings-latitude',
+        name:         'settings[latitude]',
+        type:         'text',
+        size:         '12',
+        class:        'code',
+        placeholder:  '0.0000000',
+        value:        settings['latitude'],
+        disabled:     (craft.config.get('latitude', 'sunsettosunset') is not sameas(null)),
+        warning:      (craft.config.get('latitude', 'sunsettosunset') is not sameas(null)) ? configWarning('latitude'),
+        errors:       settings.getErrors('latitude')
+    }) }}
+
+    {{ forms.textField({
+        label:        'Latitude'|t,
+        required:     true,
+        instructions: 'Enter the longitude of the target sunset location.'|t,
+        id:           'settings-longitude',
+        name:         'settings[longitude]',
+        type:         'text',
+        size:         '12',
+        class:        'code',
+        placeholder:  '0.0000000',
+        value:        settings['longitude'],
+        disabled:     (craft.config.get('longitude', 'sunsettosunset') is not sameas(null)),
+        warning:      (craft.config.get('longitude', 'sunsettosunset') is not sameas(null)) ? configWarning('longitude'),
+        errors:       settings.getErrors('longitude')
+    }) }}
+
+    {{ forms.selectField({
+        label:        'Time Zone'|t,
+        instructions: 'Select the time zone of the target sunset location.'|t,
+        id:           'settings-timezone',
+        name:         'settings[timezone]',
+        value:        settings['timezone'],
+        options: {
+            'America' : {
+                optgroup: 'America',
+            },
+            'Pacific/Honolulu' : 'Pacific/Honolulu',
+            'America/Anchorage' : 'America/Anchorage',
+            'America/Los_Angeles' : 'America/Los_Angeles',
+            'America/Phoenix' : 'America/Phoenix',
+            'America/Chicago' : 'America/Chicago',
+            'America/New_York' : 'America/New York',
+            'America/Denver' : 'America/Denver',
+        },
+        class:        (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+        disabled:     (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)),
+        warning:      (craft.config.get('timezone', 'sunsettosunset') is not sameas(null)) ? configWarning('timezone'),
+        errors:       settings.getErrors('timezone')
+    }) }}
+
+{% endblock %}

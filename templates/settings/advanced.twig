@@ -1,23 +1,23 @@
 {% extends "sunsettosunset/_layouts/cp" %}
-{% import "_includes/forms" as forms %}
 {% from "sunsettosunset/_macros" import configWarning %}
 
-{% set crumbs = [
-	{ label: craft.sunsettosunset.getPluginName | t, url: url('sunsettosunset') },
-	{ label: "Advanced" | t, url: url('sunsettosunset/advanced') },
-] %}
-
-{% set selectedTab = 'advanced' %}
+{% if craft.app.version < 2.5 %}
+	{% set selectedTab = 'advanced' %}
+{% else %}
+	{% set selectedSubnavItem = 'advanced' %}
+{% endif %}
 
 {% set fullPageForm = true %}
 
 {% block blockContent %}
+	{{ parent() }}
 
 	<input type="hidden" name="action" value="plugins/savePluginSettings">
 	<input type="hidden" name="pluginClass" value="SunsetToSunset">
 	<input type="hidden" name="redirect" value="sunsettosunset/advanced">
 
 		{{ forms.selectField({
+			first: true,
 			label:        'Banner CSS Position'|t,
 			instructions: 'Set the CSS `position` property for the banner.'|t,
 			id:           'settings-bannerCssPosition',
@@ -40,7 +40,7 @@
 			name:         'settings[bannerCssBackgroundColor]',
 			value:        settings['bannerCssBackgroundColor'],
 			placeholder:  '#da5a47 or rgb(218, 90, 71)',
-			class:        (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? 'disabled',
+			class:        (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? 'disabled' : 'code',
 			disabled:     (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)),
 			warning:      (craft.config.get('bannerCssBackgroundColor', 'sunsettosunset') is not sameas(null)) ? configWarning('bannerCssBackgroundColor'),
 			errors:       settings.getErrors('bannerCssBackgroundColor')
