@@ -74,5 +74,16 @@
         "notes": [
             "[Added] Plugin now has the option to only redirect when the requested url starts with one of the user-specified redirect urls. Before it would redirect everything. This is still possible if no specific redirect urls are added."
         ]
+    },
+    {
+        "version": "1.4.0",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.4.0.zip",
+        "date": "2018-10-19T11:00:00-12:20",
+        "notes": [
+            "[Added] Banner can be set to only show on urls set in the `specificRedirectUrls`. This way it only gives the message to those visiting the pages that will be closed on the Sabbath.",
+            "[Improved] Plugin now has it’s own section in the control panel.",
+            "[Improved] Updated the display of several of the input fields in the settings.",
+            "[Improved] Template redirect settings now has it’s own settings page."
+        ]
     }
 ]
