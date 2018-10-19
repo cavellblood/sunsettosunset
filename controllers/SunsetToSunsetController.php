@@ -45,6 +45,16 @@ class SunsetToSunsetController extends BaseController
 
     /**
      */
+    public function actionSettingsTemplate()
+    {
+        $settings = craft()->plugins->getPlugin('sunsetToSunset')->getSettings();
+        $this->renderTemplate('sunsettosunset/settings/template', array(
+            'settings' => $settings,
+        ));
+    }
+
+    /**
+     */
     public function actionSettingsAdvanced()
     {
         $settings = craft()->plugins->getPlugin('sunsetToSunset')->getSettings();
