@@ -177,10 +177,11 @@ class SunsetToSunsetPlugin extends BasePlugin
     public function registerCpRoutes()
     {
         return array(
-            'sunsettosunset' => ['action' => 'sunsetToSunset/message/index'],
-            'sunsettosunset/message' => ['action' => 'sunsetToSunset/message/index'],
-            'sunsettosunset/location' => ['action' => 'sunsetToSunset/location/index'],
-            'sunsettosunset/advanced' => ['action' => 'sunsetToSunset/advanced/index'],
+            'sunsettosunset' => ['action' => 'sunsetToSunset/settings'],
+            'sunsettosunset/message' => ['action' => 'sunsetToSunset/settings'],
+            'sunsettosunset/location' => ['action' => 'sunsetToSunset/settingsLocation'],
+            'sunsettosunset/template' => ['action' => 'sunsetToSunset/settingsTemplate'],
+            'sunsettosunset/advanced' => ['action' => 'sunsetToSunset/settingsAdvanced'],
         );
     }
 
