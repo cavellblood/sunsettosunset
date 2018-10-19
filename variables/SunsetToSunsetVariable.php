@@ -36,6 +36,11 @@ class SunsetToSunsetVariable
         return $this->getPlugin()->getPluginUrl();
     }
 
+    public function getSettingsUrl()
+    {
+        return $this->getPlugin()->getSettingsUrl();
+    }
+
     public function getMessage()
     {
         return craft()->sunsetToSunset->getMessage();
