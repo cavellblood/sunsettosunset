@@ -139,6 +139,16 @@ class SunsetToSunsetService extends BaseApplicationComponent
     }
 
     /**
+     * @return mixed
+     */
+    public function getShowBannerOnSpecificUrls()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['showBannerOnSpecificUrls'];
+
+        return $result;
+    }
+
+    /**
      * @return int
      */
     public function getClosingDayNumber()
