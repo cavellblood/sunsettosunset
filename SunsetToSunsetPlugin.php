@@ -50,25 +50,36 @@ class SunsetToSunsetPlugin extends BasePlugin
             $afterSabbath  = date('U') > $plugin->getOpeningTime() && date('w') >= $plugin->getOpeningDayNumber();
         }
 
+        // Convert specific redirect urls to array
+        $specificRedirectUrls = preg_split("/\r\n|\n|\r/", $plugin->getSpecificRedirectUrls());
 
         if ($request->isSiteRequest()) {
 
             // Before Sabbath
             if ( $beforeSabbath )
             {
-                // Render Template
-                craft()->templates->hook('sunsetToSunsetRender', function()
-                {
-                    return craft()->sunsetToSunset->render();
-                });
+                if ($plugin->getShowBannerOnSpecificUrls() && count($specificRedirectUrls)) {
+                    foreach ($specificRedirectUrls as $url) {
+                        if (preg_match('('. $url . ')i', $request->url)) {
+                            // Render Template
+                            craft()->templates->hook('sunsetToSunsetRender', function()
+                            {
+                                return craft()->sunsetToSunset->render();
+                            });
+                        }
+                    }
+                } else {
+                    // Render Template
+                    craft()->templates->hook('sunsetToSunsetRender', function()
+                    {
+                        return craft()->sunsetToSunset->render();
+                    });
+                }
             }
 
             // During Sabbath and not on Sabbath URL
             if ( $duringSabbath && !$urlMatchTemplate )
             {
-                // Convert specific redirect urls to array
-                $specificRedirectUrls = preg_split("/\r\n|\n|\r/", $plugin->getSpecificRedirectUrls());
-
                 if (count($specificRedirectUrls)) {
                     foreach ($specificRedirectUrls as $url) {
                         if (preg_match('('. $url . ')i', $request->url)) {
@@ -136,7 +147,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getVersion()
     {
-        return '1.3.0';
+        return '1.4.0';
     }
 
     /**
@@ -168,7 +179,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function hasCpSection()
     {
-        return craft()->config->get('showCpSection', 'sunsettosunset') === true;
+        return true;
     }
 
     /**
@@ -177,10 +188,11 @@ class SunsetToSunsetPlugin extends BasePlugin
     public function registerCpRoutes()
     {
         return array(
-            'sunsettosunset' => ['action' => 'sunsetToSunset/message/index'],
-            'sunsettosunset/message' => ['action' => 'sunsetToSunset/message/index'],
-            'sunsettosunset/location' => ['action' => 'sunsetToSunset/location/index'],
-            'sunsettosunset/advanced' => ['action' => 'sunsetToSunset/advanced/index'],
+            'sunsettosunset' => ['action' => 'sunsetToSunset/settings'],
+            'sunsettosunset/message' => ['action' => 'sunsetToSunset/settings'],
+            'sunsettosunset/location' => ['action' => 'sunsetToSunset/settingsLocation'],
+            'sunsettosunset/template' => ['action' => 'sunsetToSunset/settingsTemplate'],
+            'sunsettosunset/advanced' => ['action' => 'sunsetToSunset/settingsAdvanced'],
         );
     }
 
@@ -226,6 +238,7 @@ class SunsetToSunsetPlugin extends BasePlugin
             'showMessageTime'          => array(AttributeType::Number, 'label' => 'Show Message Time', 'default' => '180'),
             'templateRedirect'         => array(AttributeType::String, 'label' => 'Template Redirect', 'default' => ''),
             'specificRedirectUrls'     => array(AttributeType::Mixed, 'label' => 'Specific Redirect URLs', 'default' => ''),
+            'showBannerOnSpecificUrls' => array(AttributeType::Bool, 'label' => 'Show Banner on Specific URLs Only', 'default' => ''),
             'bannerCssPosition'        => array(AttributeType::String, 'label' => 'Banner CSS Position', 'default' => 'relative'),
             'bannerCssBackgroundColor' => array(AttributeType::String, 'label' => 'Banner CSS Background Color', 'default' => ''),
             'simulateTime'             => array(AttributeType::String, 'label' => 'Simulate Time', 'default' => ''),

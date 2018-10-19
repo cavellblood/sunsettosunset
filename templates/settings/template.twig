@@ -1,0 +1,89 @@
+{% extends "sunsettosunset/_layouts/cp" %}
+{% from "sunsettosunset/_macros" import configWarning %}
+
+{% if craft.app.version < 2.5 %}
+	{% set selectedTab = 'template' %}
+{% else %}
+	{% set selectedSubnavItem = 'template' %}
+{% endif %}
+
+{% set fullPageForm = true %}
+
+{% block blockContent %}
+	{{ parent() }}
+
+	<input type="hidden" name="action" value="plugins/savePluginSettings">
+	<input type="hidden" name="pluginClass" value="SunsetToSunset">
+	<input type="hidden" name="redirect" value="sunsettosunset/template">
+
+	{{ forms.textField({
+		first: true,
+		label: 'Template Redirect'|t,
+		class: 'code',
+		instructions: 'Enter the url to the template that will display the full message above during the Sabbath hours. <span class="error">**Template must exist**</span> and have `{{ craft.sunsettosunset.message }}` to display the message.'|t,
+		id: 'settings-templateRedirect',
+		name: 'settings[templateRedirect]',
+		type: 'text',
+		placeholder: '/sabbath',
+		value: settings['templateRedirect']
+	}) }}
+
+	{{ forms.lightswitchField({
+		label: 'Show Banner on Specific URLs Only'|t,
+		instructions: 'If this is checked the plugin will only show the banner message on the specific urls added in the **Specific Redirect URLs** field.'|t,
+		id: 'settings-showBannerOnSpecificUrls',
+		name: 'settings[showBannerOnSpecificUrls]',
+		on: settings.showBannerOnSpecificUrls
+	}) }}
+
+	{{ forms.textareaField({
+		label: 'Spefic Redirect URLs'|t,
+		class: 'code',
+		instructions: 'The plugin will only redirect to the template above if the requested url <span class="error">**starts with**</span> one of the urls below.
+
+### Examples:
+
+<table class="data fullwidth collapsible">
+	<thead>
+	<tr>
+		<th>Specific URL</th>
+		<th>Matches URL starting with</th>
+		<th>Redirects to</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>/store</code></td>
+			<td><code>' ~ siteUrl ~ 'store</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+		<tr>
+			<td><code>/</code></td>
+			<td><code>' ~ siteUrl ~ '</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+		<tr>
+			<td><code>/news</code></td>
+			<td><code>' ~ siteUrl ~ 'news</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+		<tr>
+			<td><code>/news/' ~ now | date('Y') ~ '</code></td>
+			<td><code>' ~ siteUrl ~ 'news/' ~ now | date('Y') ~ '</code></td>
+			<td><code>' ~ settings['templateRedirect'] ~ '</code></td>
+		</tr>
+	</tbody>
+</table>
+
+**Enter each URL on a new line.**',
+
+
+		id: 'settings-specificRedirectUrls',
+		name: 'settings[specificRedirectUrls]',
+		type: 'text',
+		placeholder: 'Leave empty to redirect every page.',
+		rows: 5,
+		value: settings['specificRedirectUrls']
+	}) }}
+
+{% endblock %}

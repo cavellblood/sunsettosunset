@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 Cavell L. Blood
  * @link      https://cavellblood.com
  * @package   SunsetToSunset
- * @since     1
+ * @since     1.0.0
  */
 
 namespace Craft;
@@ -134,6 +134,16 @@ class SunsetToSunsetService extends BaseApplicationComponent
     public function getSpecificRedirectUrls()
     {
         $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['specificRedirectUrls'];
+
+        return $result;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShowBannerOnSpecificUrls()
+    {
+        $result = craft()->plugins->getPlugin('sunsetToSunset')->getSettings()->attributes['showBannerOnSpecificUrls'];
 
         return $result;
     }

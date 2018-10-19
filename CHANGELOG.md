@@ -1,5 +1,14 @@
 # Sunset to Sunset Changelog
 
+## 1.4.0 - 2018-10-19
+### Added
+* Banner can be set to only show on urls set in the `specificRedirectUrls`. This way it only gives the message to those visiting the pages that will be closed on the Sabbath.
+
+### Improved
+* Plugin now has it’s own section in the control panel.
+* Updated the display of several of the input fields in the settings.
+* Template redirect settings now has it’s own settings page.
+
 ## 1.3.0 - 2018-10-12
 ### Added
 * Plugin now has the option to only redirect when the requested url starts with one of the user-specified redirect urls. Before it would redirect everything. This is still possible if no specific redirect urls are added.

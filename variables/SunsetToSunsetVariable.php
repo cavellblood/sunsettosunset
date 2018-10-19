@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 Cavell L. Blood
  * @link      https://cavellblood.com
  * @package   SunsetToSunset
- * @since     1
+ * @since     1.0.0
  */
 
 namespace Craft;
@@ -34,6 +34,11 @@ class SunsetToSunsetVariable
     public function getPluginUrl()
     {
         return $this->getPlugin()->getPluginUrl();
+    }
+
+    public function getSettingsUrl()
+    {
+        return $this->getPlugin()->getSettingsUrl();
     }
 
     public function getMessage()
