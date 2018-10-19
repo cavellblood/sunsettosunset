@@ -29,11 +29,14 @@
 	}) }}
 
 	{{ forms.lightswitchField({
-		label: 'Show Banner on Specific URLs Only'|t,
+		label:        'Show Banner on Specific URLs Only'|t,
 		instructions: 'If this is checked the plugin will only show the banner message on the specific urls added in the **Specific Redirect URLs** field.'|t,
-		id: 'settings-showBannerOnSpecificUrls',
-		name: 'settings[showBannerOnSpecificUrls]',
-		on: settings.showBannerOnSpecificUrls
+		id:           'settings-showBannerOnSpecificUrls',
+		name:         'settings[showBannerOnSpecificUrls]',
+		on:           settings.showBannerOnSpecificUrls,
+		disabled:     (craft.config.get('showBannerOnSpecificUrls', 'sunsettosunset') is not sameas(null)),
+		warning:      (craft.config.get('showBannerOnSpecificUrls', 'sunsettosunset') is not sameas(null)) ? configWarning('showBannerOnSpecificUrls'),
+		errors:       settings.getErrors('showBannerOnSpecificUrls')
 	}) }}
 
 	{{ forms.textareaField({
