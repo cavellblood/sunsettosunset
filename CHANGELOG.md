@@ -1,5 +1,9 @@
 # Sunset to Sunset Changelog
 
+## 1.4.2 - 2019-03-06
+### Fixed
+* Plugin was not redirecting during the week causing some users to continue seeing the sabbath template during the week. This has now been fixed.
+
 ## 1.4.1 - 2018-10-19
 ### Fixed
 * `showBannerOnSpecificUrls` setting will now be disabled when set via the config file.
