@@ -93,5 +93,13 @@
         "notes": [
             "[Fixed] `showBannerOnSpecificUrls` setting will now be disabled when set via the config file."
         ]
+    },
+    {
+        "version": "1.4.2",
+        "downloadUrl": "https://github.com/cavellblood/sunsettosunset/archive/1.4.2.zip",
+        "date": "2019-03-06T11:00:00-12:33",
+        "notes": [
+            "[Fixed] Plugin was not redirecting during the week causing some users to continue seeing the sabbath template during the week. This has now been fixed."
+        ]
     }
 ]
