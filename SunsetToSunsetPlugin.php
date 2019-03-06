@@ -28,6 +28,7 @@ class SunsetToSunsetPlugin extends BasePlugin
         $urlMatchTemplate = ($request->url === $template);
 
         $simulateTime = $plugin->getSimulateTime();
+        $duringWeek = false;
         $beforeSabbath = false;
         $duringSabbath = false;
         $afterSabbath = false;
@@ -45,6 +46,7 @@ class SunsetToSunsetPlugin extends BasePlugin
                     break;
             }
         } else {
+            $duringWeek = date('U') < $plugin->getClosingTime();
             $beforeSabbath = date('U') < $plugin->getClosingTime() && date('U') > $plugin->getShowMessageTime();
             $duringSabbath = date('U') >= $plugin->getClosingTime() && date('U') <= $plugin->getOpeningTime() && date('w') >= $plugin->getClosingDayNumber();
             $afterSabbath  = date('U') > $plugin->getOpeningTime() && date('w') >= $plugin->getOpeningDayNumber();
@@ -91,8 +93,8 @@ class SunsetToSunsetPlugin extends BasePlugin
                 }
             }
 
-            // After Sabbath
-            if ( $afterSabbath )
+            // During the week or after Sabbath
+            if ( $duringWeek || $afterSabbath )
             {
                 // If site is open and on message template redirect
                 if ( $request->isSiteRequest() && $urlMatchTemplate ) {
