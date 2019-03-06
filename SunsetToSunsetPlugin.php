@@ -109,7 +109,7 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getName()
     {
-         return Craft::t('Sunset to Sunset');
+        return Craft::t('Sunset to Sunset');
     }
 
     /**
@@ -252,9 +252,9 @@ class SunsetToSunsetPlugin extends BasePlugin
      */
     public function getSettingsHtml()
     {
-       return craft()->templates->render('sunsettosunset', array(
-           'settings' => $this->getSettings()
-       ));
+        return craft()->templates->render('sunsettosunset', array(
+            'settings' => $this->getSettings()
+        ));
     }
 
     /**
